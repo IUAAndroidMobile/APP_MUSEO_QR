@@ -1,0 +1,41 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_height">176dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dim_splash">300dp</dimen>
+    <dimen name="dim_20dp">20dp</dimen>
+    <dimen name="dim_18sp">18sp</dimen>
+    <dimen name="dim_5dp">5dp</dimen>
+    <dimen name="dim_15dp">15dp</dimen>
+    <dimen name="dim_10dp">10dp</dimen>
+    <dimen name="dim_logo_museo">180dp</dimen>
+    <dimen name="dim_25dp">25dp</dimen>
+    <dimen name="dim_25sp">25sp</dimen>
+    <dimen name="dim_layout_login">350dp</dimen>
+    <dimen name="dim_titulo_login">35sp</dimen>
+    <dimen name="dim_min_heig">48dp</dimen>
+    <dimen name="dim_35dp">35dp</dimen>
+    <dimen name="dim_30sp">30sp</dimen>
+    <dimen name="dim_50sp">50sp</dimen>
+    <dimen name="dim_100dp">100dp</dimen>
+    <dimen name="dim_0dp">0dp</dimen>
+    <dimen name="dim_30dp">30dp</dimen>
+    <dimen name="dim_60sp">60sp</dimen>
+    <dimen name="dim_300dp">300dp</dimen>
+    <dimen name="dim_15sp">15sp</dimen>
+    <dimen name="dim_350dp">350dp</dimen>
+    <dimen name="dim_250dp">250dp</dimen>
+    <dimen name="dim_55dp">55dp</dimen>
+    <dimen name="dim_200dp">200dp</dimen>
+    <dimen name="dim_40dp">40dp</dimen>
+    <dimen name="dim_210dp">210dp</dimen>
+    <dimen name="dim_80dp">80dp</dimen>
+    <dimen name="dim_20sp">20sp</dimen>
+    <dimen name="dim_50dp">50dp</dimen>
+    <dimen name="dim_1dp">1dp</dimen>
+    <dimen name="dim_35sp">35sp</dimen>
+    <dimen name="dim_60dp">60dp</dimen>
+    <dimen name="dim_75dp">75dp</dimen>
+    <dimen name="dim_90dp">90dp</dimen>
+    <dimen name="dim_85dp">85dp</dimen>
+</resources>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:scrollbars="vertical"
+    tools:context=".resultado_qr.ResultadoActivity">
+
+    <TextView
+        android:id="@+id/text_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/txt_titulo_resulqr"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/dim_50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="@dimen/dim_350dp"
+        android:layout_height="@dimen/dim_250dp"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:src="@drawable/mirage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_titulo" />
+
+    <TextView
+        android:id="@+id/text_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:fontFamily="@font/george_semibold"
+        android:paddingStart="@dimen/dim_10dp"
+        android:paddingEnd="@dimen/dim_10dp"
+        android:text="@string/txt_result_qr"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dim_15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="@dimen/dim_55dp"
+        android:layout_height="@dimen/dim_55dp"
+        android:layout_marginBottom="16dp"
+        android:clickable="true"
+        android:src="@drawable/ic_launcher_foreground"
+        app:backgroundTint="@color/purple_200"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="40dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

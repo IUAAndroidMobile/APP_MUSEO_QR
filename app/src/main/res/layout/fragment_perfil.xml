@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.perfil.PerfilFragment">
+
+    <TextView
+        android:id="@+id/nombre_perfl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_20dp"
+        android:fontFamily="@font/george_semibold"
+        android:text="@string/juan_carlos"
+        android:textColor="@color/black"
+        android:textSize="@dimen/dim_50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/dim_200dp"
+        android:layout_height="@dimen/dim_200dp"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:src="@drawable/foto_perfil"
+        app:civ_border_color="#FF000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombre_perfl" />
+
+    <View
+        android:id="@+id/view3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_1dp"
+        android:layout_marginTop="@dimen/dim_35dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/view2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <TextView
+        android:id="@+id/text_qr_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/qrs_escaneados"
+        android:textColor="@color/purple_700"
+        android:textSize="@dimen/dim_20sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_qr_scan_number"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/text_qr_scan_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/_8"
+        android:textColor="@color/purple_200"
+        android:textSize="@dimen/dim_25sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toStartOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_qr_scan" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="1dp"
+        android:layout_height="@dimen/dim_100dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="@id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/view2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/text_qr_no_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/qrs_no_escaneados"
+        android:textColor="@color/purple_700"
+        android:textSize="@dimen/dim_20sp"
+        app:layout_constraintBottom_toTopOf="@+id/text_qr_no_scan_number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+    <TextView
+        android:id="@+id/text_qr_no_scan_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/_21"
+        android:textColor="@color/purple_200"
+        android:textSize="@dimen/dim_25sp"
+        app:layout_constraintBottom_toTopOf="@+id/view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/view2"
+        app:layout_constraintTop_toBottomOf="@+id/text_qr_no_scan" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dim_1dp"
+        android:background="@color/grey"
+        app:layout_constraintBottom_toTopOf="@+id/btn_perfil_fav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
+
+    <Button
+        android:id="@+id/btn_perfil_fav"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:background="@drawable/rounded_btn"
+        android:paddingStart="@dimen/dim_20dp"
+        android:paddingEnd="@dimen/dim_20dp"
+        android:text="@string/txt_favoritos"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <Button
+        android:id="@+id/btn_compartir_perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:background="@drawable/rounded_btn"
+        android:paddingStart="@dimen/dim_20dp"
+        android:paddingEnd="@dimen/dim_20dp"
+        android:text="@string/compartir_mi_perfil"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_perfil_fav" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

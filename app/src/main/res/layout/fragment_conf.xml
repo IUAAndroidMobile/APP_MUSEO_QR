@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.conf.ConfFragment">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image"
+        android:layout_width="@dimen/dim_200dp"
+        android:layout_height="@dimen/dim_200dp"
+        android:layout_marginTop="@dimen/dim_30dp"
+        android:src="@drawable/foto_perfil"
+        app:civ_border_color="@color/transparente"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20dp"
+        android:layout_marginTop="@dimen/dim_80dp"
+        android:layout_marginEnd="@dimen/dim_50dp"
+        android:backgroundTint="@color/grey"
+        android:enabled="false"
+        android:hint="@string/juan_carlos"
+        android:inputType="text"
+        android:minHeight="@dimen/dim_min_heig"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <TextView
+        android:id="@+id/text_nombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20dp"
+        android:layout_marginTop="@dimen/dim_35dp"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/nombre"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/dim_25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <View
+        android:id="@+id/edit1"
+        android:layout_width="@dimen/dim_25dp"
+        android:layout_height="@dimen/dim_25dp"
+        android:layout_marginTop="@dimen/dim_90dp"
+        android:background="@drawable/ic_edit"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+
+    <TextView
+        android:id="@+id/text_mail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20dp"
+        android:layout_marginTop="@dimen/dim_80dp"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/correo_electr_nico"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/dim_25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_nombre" />
+
+    <EditText
+        android:id="@+id/input_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20dp"
+        android:layout_marginTop="@dimen/dim_60dp"
+        android:layout_marginEnd="@dimen/dim_50dp"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:enabled="false"
+        android:fontFamily="@font/george_semibold"
+        android:hint="@string/juancarlos_gmail_com"
+        android:inputType="textEmailAddress"
+        android:minHeight="@dimen/dim_min_heig"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_nombre" />
+
+    <View
+        android:id="@+id/edit2"
+        android:layout_width="@dimen/dim_25dp"
+        android:layout_height="@dimen/dim_25dp"
+        android:layout_marginTop="@dimen/dim_80dp"
+        android:background="@drawable/ic_edit"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/edit1" />
+
+    <TextView
+        android:id="@+id/text_pass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20dp"
+        android:layout_marginTop="@dimen/dim_75dp"
+        android:fontFamily="@font/george_bold"
+        android:text="@string/hint_contra_edit"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/dim_25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_mail" />
+
+    <EditText
+        android:id="@+id/inputPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dim_20dp"
+        android:layout_marginTop="@dimen/dim_60dp"
+        android:layout_marginEnd="@dimen/dim_50dp"
+        android:backgroundTint="@color/grey"
+        android:ems="10"
+        android:enabled="false"
+        android:fontFamily="@font/george_semibold"
+        android:hint="@string/hint_asterisco"
+        android:inputType="textPassword"
+        android:minHeight="@dimen/dim_min_heig"
+        android:textColor="@color/black"
+        android:textColorHint="@color/grey"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_mail" />
+
+    <View
+        android:id="@+id/edit3"
+        android:layout_width="@dimen/dim_25dp"
+        android:layout_height="@dimen/dim_25dp"
+        android:layout_marginTop="@dimen/dim_85dp"
+        android:background="@drawable/ic_edit"
+        android:backgroundTint="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/input_nombre"
+        app:layout_constraintTop_toBottomOf="@+id/edit2" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dim_15dp"
+        android:layout_marginBottom="@dimen/dim_80dp"
+        android:minHeight="@dimen/dim_min_heig"
+        android:text="@string/notificaciones"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:checked="true" />
+
+    <Button
+        android:id="@+id/btn_guardar_conf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dim_20dp"
+        android:background="@drawable/rounded_btn"
+        android:paddingStart="@dimen/dim_15dp"
+        android:paddingEnd="@dimen/dim_15dp"
+        android:text="@string/guardar"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

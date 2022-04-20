@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgr"
+    tools:context=".splash.SplashExitoActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/george_bold"
+            android:text="@string/txt_bienvenido"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dim_50sp" />
+
+        <TextView
+            android:id="@+id/userTextViewSplash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_15dp"
+            android:fontFamily="@font/george_semibold_italic"
+            android:text="username"
+            android:textColor="#00FF00"
+            android:textSize="@dimen/dim_30sp"
+            tools:text="username" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dim_15dp"
+            android:fontFamily="@font/george_semibold"
+            android:gravity="center"
+            android:text="@string/txt_muchos_museos"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/dim_25sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
