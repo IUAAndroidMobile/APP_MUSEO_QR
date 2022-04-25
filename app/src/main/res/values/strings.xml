@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name"> App Museos - Cano - Pacha </string>
+    <string name="app_name">App Museo Malvinas</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
 
