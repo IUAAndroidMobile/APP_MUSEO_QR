@@ -4,13 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgr"
+    android:background="@color/primary_color"
     tools:context=".splash.SplashActivity">
+    
+    <View
+        android:layout_width="@dimen/dim_splash"
+        android:layout_height="@dimen/dim_splash"
+        android:background="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <ImageView
         android:layout_width="@dimen/dim_splash"
         android:layout_height="@dimen/dim_splash"
-        android:src="@drawable/exhibition"
+        android:src="@drawable/undef_main_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

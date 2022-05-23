@@ -1,19 +1,18 @@
-package com.tecno_moviles.museo_cano_pacha.ui.favoritos
+package com.tecno_moviles.museo_cano_pacha.list
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tecno_moviles.museo_cano_pacha.R
-import com.tecno_moviles.museo_cano_pacha.resultado_qr.ResultadoActivity
+import com.tecno_moviles.museo_cano_pacha.item_detail.ItemDetailActivity
+import com.tecno_moviles.museo_cano_pacha.list.data.Favorito
 
-class FavoritosFragment : Fragment(), RecyclerViewOnClickListener {
+class ItemsListFragment : Fragment(), RecyclerViewOnClickListener {
 
     private val favoritosList = mutableListOf<Favorito> ()
     lateinit var recyclerView: RecyclerView
@@ -25,13 +24,13 @@ class FavoritosFragment : Fragment(), RecyclerViewOnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_favoritos, container, false)
+        val view = inflater.inflate(R.layout.fragment_items_list, container, false)
 
         initFavs()
 
         recyclerView = view.findViewById(R.id.recyclerFavoritos)
         recyclerView.layoutManager = LinearLayoutManager(view.context)
-        recyclerView.adapter = FavoritosListAdapter(favoritosList, this)
+        recyclerView.adapter = MuseumListAdapter(favoritosList, this)
 
         return view
     }
@@ -57,24 +56,9 @@ class FavoritosFragment : Fragment(), RecyclerViewOnClickListener {
     }
 
     override fun onItemClick(position: Int) {
+        startActivity(Intent(activity?.applicationContext, ItemDetailActivity::class.java))
 
-        btnCorazon = recyclerView[position].findViewById(R.id.viewCorazon)
-        btnCorazon.setOnClickListener {
-            if (favoritosList[position].esFav) {
-                favoritosList[position].esFav = false
-                it.background = resources.getDrawable(R.drawable.ic_favorite)
-            } else {
-                favoritosList[position].esFav = true
-                it.background = resources.getDrawable(R.drawable.ic_favorite_red)
-            }
-        }
-
-        backItem = recyclerView[position].findViewById(R.id.back_item)
-        backItem.setOnClickListener {
-            startActivity(Intent(activity?.applicationContext, ResultadoActivity::class.java))
-        }
-
-        Toast.makeText(activity?.baseContext, "El titulo seleccionado es: ${favoritosList[position].titulo}", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(activity?.baseContext, "El titulo seleccionado es: ${favoritosList[position].titulo}", Toast.LENGTH_SHORT).show()
     }
 
 

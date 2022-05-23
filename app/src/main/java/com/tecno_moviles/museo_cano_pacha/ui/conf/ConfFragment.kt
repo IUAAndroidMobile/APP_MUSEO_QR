@@ -50,8 +50,6 @@ class ConfFragment : Fragment() {
             binding.inputNombre.isEnabled = false
             binding.inputMail.isEnabled = false
             binding.inputPassword.isEnabled = false
-
-            Navigation.findNavController(view).navigate(ConfFragmentDirections.actionNavConfToNavHome())
         }
     }
 

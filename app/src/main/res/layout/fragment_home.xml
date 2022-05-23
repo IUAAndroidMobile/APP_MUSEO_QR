@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/backgr"
-    tools:context=".ui.home.HomeFragment">
+    android:background="@color/primary_color"
+    tools:context=".home.HomeFragment">
 
     <TextView
         android:id="@+id/text_tittle"
@@ -13,74 +13,80 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dim_30dp"
         android:fontFamily="@font/george_bold"
-        android:text="@string/escaner_qr"
+        android:text="@string/home_title"
         android:textColor="@color/white"
-        android:textSize="@dimen/dim_60sp"
+        android:textSize="@dimen/dim_50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/logo_iua"
-        android:layout_width="@dimen/dim_200dp"
-        android:layout_height="@dimen/dim_250dp"
-        android:layout_marginTop="@dimen/dim_40dp"
-        android:src="@drawable/qr_icon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_tittle" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_100dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo_iua">
-
-        <Button
-            android:id="@+id/btnEscanear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dim_40dp"
-            android:elevation="@dimen/dim_5dp"
-            android:background="@drawable/rounded_btn"
-            android:paddingStart="@dimen/dim_15dp"
-            android:paddingEnd="@dimen/dim_15dp"
-            android:text="@string/btn_escanear_qr"
-            android:textColor="@color/white"
-            android:textSize="@dimen/dim_18sp" />
-
-        <Button
-            android:id="@+id/btn_ver"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_btn"
-            android:paddingStart="@dimen/dim_15dp"
-            android:paddingEnd="@dimen/dim_15dp"
-            android:text="@string/btn_ver_contenido"
-            android:textColor="@color/white"
-            android:textSize="@dimen/dim_18sp" />
-
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btn_favoritos"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_30dp"
-        android:background="@drawable/rounded_btn"
-        android:paddingStart="@dimen/dim_15dp"
-        android:paddingEnd="@dimen/dim_15dp"
-        android:text="@string/txt_favoritos"
+        android:fontFamily="@font/george_regular"
+        android:text="@string/home_description"
+        android:layout_margin="@dimen/dim_10dp"
+        android:gravity="center"
         android:textColor="@color/white"
         android:textSize="@dimen/dim_18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@id/text_tittle" />
+
+    <ImageView
+        android:id="@+id/logo_qr"
+        android:layout_width="@dimen/dim_150dp"
+        android:layout_height="@dimen/dim_150dp"
+        android:layout_marginTop="@dimen/dim_50dp"
+        android:src="@drawable/qr_icon"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_description" />
+
+    <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dim_40dp"
+        android:elevation="@dimen/dim_5dp"
+        android:background="@drawable/rounded_btn"
+        android:paddingStart="@dimen/dim_15dp"
+        android:paddingEnd="@dimen/dim_15dp"
+        android:text="@string/btn_escanear_qr"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dim_18sp"
+        android:layout_margin="@dimen/dim_15dp"
+        app:layout_constraintBottom_toTopOf="@id/text_about"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_see_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_btn"
+        android:paddingStart="@dimen/dim_15dp"
+        android:paddingEnd="@dimen/dim_15dp"
+        android:text="@string/btn_ver_contenido"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dim_18sp"
+        android:layout_margin="@dimen/dim_15dp"
+        app:layout_constraintBottom_toTopOf="@id/text_about"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/george_light"
+        android:text="@string/home_about"
+        android:layout_margin="@dimen/dim_6sp"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dim_18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

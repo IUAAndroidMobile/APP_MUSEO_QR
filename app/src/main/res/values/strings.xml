@@ -1,7 +1,12 @@
 <resources>
-    <string name="app_name">App Museo Malvinas</string>
+    <string name="app_name">Pampa App</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
+
+    <string name="home_title">PAMPA App</string>
+    <string name="home_description">Bienvenidos a los espacios patrimoniales de la Guarnicion Aerea Córdoba (GAC) \n\n Para comenzar escanee un QR</string>
+    <string name="home_about">App desarrollada por UNDEX - 2022</string>
+
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -29,7 +34,7 @@
     <string name="hint_apellido">Apellido</string>
     <string name="txt_bienvenido">Bienvenido</string>
     <string name="txt_muchos_museos">Te esperan muchos museos\npor conocer!</string>
-    <string name="escaner_qr">Escáner QR</string>
+
     <string name="txt_result_qr">Esta aeronave (matricula C-709) llegó al país a partir de 1983, provenientes de Israel, donde originalmente operaron en la Fuerza Aérea Israelí bajo la denominación “Shahak” (MIIICJ). La mayoría de estas aeronaves intervinieron en el conflicto o guerra de Yom Kipur, también conocida como guerra del Ramadán o guerra de Octubre. Posteriormente operaron por un tiempo en la X Brigada Aérea con asiento en Rio Gallegos, donde nació el Escuadrón ”Guerreros del Hielo”. Poco tiempo después fueron reemplazados en esta misma Unidad por los aviones que nuestro País había adquirido a la República del Perú en 1982, los MIRAGE-VP. De esta forma todos los MIRAGE III CJ, pasaron a prestar servicios en la IV Brigada Aérea con asiento en MENDOZA, Cuna de la Aviación de CAZA.</string>
     <string name="txt_titulo_resulqr">Mirage IIICJ</string>
     <string name="btn_escanear_qr">Escanear QR</string>

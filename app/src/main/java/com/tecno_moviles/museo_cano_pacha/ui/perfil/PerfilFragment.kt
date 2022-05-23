@@ -33,7 +33,7 @@ class PerfilFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnPerfilFav.setOnClickListener {
-            Navigation.findNavController(view).navigate(PerfilFragmentDirections.actionNavPerfilToFavoritosFragment())
+            //Navigation.findNavController(view).navigate(PerfilFragmentDirections.actionNavPerfilToFavoritosFragment())
         }
     }
 

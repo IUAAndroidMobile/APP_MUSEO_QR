@@ -1,4 +1,4 @@
-package com.tecno_moviles.museo_cano_pacha.ui.favoritos
+package com.tecno_moviles.museo_cano_pacha.list.data
 
 data class Favorito (
     val imagenNombre : String? = null,
