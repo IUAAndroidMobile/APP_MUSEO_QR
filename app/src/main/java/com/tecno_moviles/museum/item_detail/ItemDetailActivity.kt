@@ -16,6 +16,6 @@ class ItemDetailActivity : AppCompatActivity() {
         binding = ActivityItemDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         //TODO: We should inject the view model.
-        viewModel = ViewModelProvider(this).get(ItemDetailViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(ItemDetailViewModel::class.java)
     }
 }

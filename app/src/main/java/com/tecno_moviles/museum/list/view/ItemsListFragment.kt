@@ -6,14 +6,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tecno_moviles.museum.R
+import com.tecno_moviles.museum.base.BaseFragment
+import com.tecno_moviles.museum.databinding.FragmentItemsListBinding
 import com.tecno_moviles.museum.item_detail.ItemDetailActivity
 import com.tecno_moviles.museum.list.usecase.Favorito
+import com.tecno_moviles.museum.list.viewModel.ItemListViewModel
 
-class ItemsListFragment : Fragment(), RecyclerViewOnClickListener {
+class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
 
+    private lateinit var itemListViewModel: ItemListViewModel
+
+    private var binding: FragmentItemsListBinding? = null
     lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -21,15 +28,21 @@ class ItemsListFragment : Fragment(), RecyclerViewOnClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_items_list, container, false)
-
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding = FragmentItemsListBinding.inflate(inflater, container, false)
         initFavs()
 
-        recyclerView = view.findViewById(R.id.recyclerFavoritos)
-        recyclerView.layoutManager = LinearLayoutManager(view.context)
+        recyclerView = binding!!.recyclerFavoritos
+        recyclerView.layoutManager = LinearLayoutManager(view?.context)
         //recyclerView.adapter = MuseumListAdapter(favoritosList, this)
 
-        return view
+        return binding!!.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        itemListViewModel = ViewModelProvider(this).get(ItemListViewModel::class.java)
+
     }
 
     private fun initFavs () {
