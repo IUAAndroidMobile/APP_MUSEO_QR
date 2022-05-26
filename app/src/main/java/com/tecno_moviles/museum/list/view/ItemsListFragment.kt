@@ -5,20 +5,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tecno_moviles.museum.R
 import com.tecno_moviles.museum.base.BaseFragment
 import com.tecno_moviles.museum.databinding.FragmentItemsListBinding
 import com.tecno_moviles.museum.item_detail.ItemDetailActivity
-import com.tecno_moviles.museum.list.usecase.Favorito
 import com.tecno_moviles.museum.list.viewModel.ItemListViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
 
-    private lateinit var itemListViewModel: ItemListViewModel
+    private val itemListViewModel: ItemListViewModel by viewModel()
 
     private var binding: FragmentItemsListBinding? = null
     lateinit var recyclerView: RecyclerView
@@ -41,9 +38,9 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        itemListViewModel = ViewModelProvider(this).get(ItemListViewModel::class.java)
-
+        itemListViewModel.callGetAllItems()
     }
+
 
     private fun initFavs () {
         // Duda: cambiar por uri o por id drawable segun lo que devuelva el servidor
