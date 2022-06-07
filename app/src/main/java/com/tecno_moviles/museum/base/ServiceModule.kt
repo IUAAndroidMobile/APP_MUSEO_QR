@@ -1,8 +1,10 @@
 package com.tecno_moviles.museum.base
 
 import com.tecno_moviles.museum.BuildConfig
+import com.tecno_moviles.museum.preferences.AppPreferencesRepository
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.qualifier.named
@@ -14,12 +16,15 @@ import java.util.concurrent.TimeUnit
 const val RETROFIT_API_AUTH = "RetrofitAuthApi"
 const val HTTP_CLIENT_AUTH = "OkHttpClientAuth"
 
+const val HEADER_ACCESS_TOKEN = "access_token"
+
+
 const val TIMEOUT_API = 30L
 
 val apiAuthModule = module {
     //Auth Api
     single() { providerHttpLoggingInterceptor() }
-    single(named(HTTP_CLIENT_AUTH)) { providerHttpClientAuth(get()) }
+    single(named(HTTP_CLIENT_AUTH)) { providerHttpClientAuth(get(), get()) }
     single(named(RETROFIT_API_AUTH)) {
         providerRetrofit(
             url = BuildConfig.BASE_URL,
@@ -37,24 +42,27 @@ fun providerRetrofit(url: String, client: OkHttpClient): Retrofit {
 }
 
 fun providerHttpClientAuth(
-    httpLoggingInterceptor: HttpLoggingInterceptor?
+    httpLoggingInterceptor: HttpLoggingInterceptor?,
+    appPreferencesRepository: AppPreferencesRepository
 ): OkHttpClient {
 
     val httpClientBuilder = generateCustomClient(TIMEOUT_API)
     httpClientBuilder.addInterceptor { chain: Interceptor.Chain ->
-        val builder = generateBasicRequest(chain, appPreferencesRepository)
-        builder.addHeader(HEADER_APP_VERSION, BuildConfig.VERSION_NAME)
-        builder.addHeader(HEADER_ACCESS_TOKEN, appPreferencesRepository.tokenM)
-        builder.addHeader(HEADER_CLIENT_ID, BuildConfig.CI_TUNKI_ID)
+        //val builder = generateBasicRequest(chain, appPreferencesRepository)
+        val builder = Request.Builder()
+        //builder.addHeader(HEADER_APP_VERSION, BuildConfig.VERSION_NAME)
+        builder.addHeader(HEADER_ACCESS_TOKEN, appPreferencesRepository.getTokenU()!!)
+        //builder.addHeader(HEADER_CLIENT_ID, BuildConfig.CI_TUNKI_ID)
         chain.proceed(builder.build())
     }
     if (httpLoggingInterceptor != null) {
         httpClientBuilder.addInterceptor(httpLoggingInterceptor)
     }
 
-    httpClientBuilder.addInterceptor(ApiKotlinVersionInterceptor())
+    //httpClientBuilder.addInterceptor(ApiKotlinVersionInterceptor())
     return httpClientBuilder.build()
 }
+
 
 fun providerHttpLoggingInterceptor(): HttpLoggingInterceptor {
     val logging = HttpLoggingInterceptor()
@@ -69,6 +77,17 @@ fun generateCustomClient(timeout: Long): OkHttpClient.Builder {
         .connectTimeout(timeout, TimeUnit.SECONDS)
         .writeTimeout(timeout, TimeUnit.SECONDS)
         .readTimeout(timeout, TimeUnit.SECONDS)
+}
+
+fun generateBasicRequest(
+    chain: Interceptor.Chain,
+    appPreferencesRepository: AppPreferencesRepository
+): Request.Builder {
+    val builder = chain.request().newBuilder()
+    //builder.addHeader(HEADER_PLATFORM, PLATFORM)
+    //builder.addHeader(HEADER_APPLICATION, APPLICATION)
+    //builder.addHeader(HEADER_DEVICE_ID, appPreferencesRepository.deviceId)
+    return builder
 }
 
 class BodyInterceptor : Interceptor {
