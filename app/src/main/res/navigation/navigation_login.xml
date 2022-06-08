@@ -40,7 +40,7 @@
     </fragment>
     <activity
         android:id="@+id/splashExitoActivity"
-        android:name="com.tecno_moviles.museum.splash.SplashExitoActivity"
+        android:name="com.tecno_moviles.museum.splash.view.SplashExitoActivity"
         android:label="activity_splash_exito"
         tools:layout="@layout/activity_splash_exito" />
     <fragment

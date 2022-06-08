@@ -20,7 +20,7 @@
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true" />
         <activity
-            android:name="com.tecno_moviles.museum.splash.SplashActivity"
+            android:name="com.tecno_moviles.museum.splash.view.SplashActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true">
             <intent-filter>
