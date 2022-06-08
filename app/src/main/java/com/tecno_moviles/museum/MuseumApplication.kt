@@ -6,6 +6,7 @@ import com.tecno_moviles.museum.base.appModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
+import org.koin.core.logger.Level
 
 open class MuseumApplication: Application() {
 
@@ -14,7 +15,7 @@ open class MuseumApplication: Application() {
 
         //Start Koin
         startKoin {
-            androidLogger()
+            androidLogger(Level.INFO)
             androidContext(this@MuseumApplication)
             modules(apiAuthModule, appModule)
         }

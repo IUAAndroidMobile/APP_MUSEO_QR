@@ -5,11 +5,13 @@ import android.content.SharedPreferences
 import com.tecno_moviles.museum.list.datasource.repository.IItemListRepository
 import com.tecno_moviles.museum.list.datasource.repository.ItemListRepository
 import com.tecno_moviles.museum.list.datasource.service.IItemListService
+import com.tecno_moviles.museum.list.usecase.ItemListUseCase
 import com.tecno_moviles.museum.list.viewModel.ItemListBindingDelegate
 import com.tecno_moviles.museum.list.viewModel.ItemListViewModel
 import com.tecno_moviles.museum.preferences.AppPreferencesRepository
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit
 
@@ -26,8 +28,7 @@ val appModule: Module = module {
     viewModel {
         ItemListViewModel(
             itemListUseCase = get(),
-            bindingDelegate = get(),
-            presenterDelegate = get()
+            bindingDelegate = get()
         )
     }
     factory { providerItemListBindingDelegate() }
@@ -35,8 +36,11 @@ val appModule: Module = module {
     //Inject Repository
     single<IItemListRepository> { ItemListRepository(service = get()) }
 
+    //Inject Use case
+    single { providerItemListUseCase(get())}
+
     //Inject Service
-    single { providerItemListService(get()) }
+    single { providerItemListService(get(named(RETROFIT_API_AUTH))) }
     //End List Region
 
 }
@@ -47,6 +51,10 @@ fun providerSharedPreferences(context: Context): SharedPreferences {
 
 fun providerAppPreferencesRepository(sharedPreferences: SharedPreferences): AppPreferencesRepository {
     return AppPreferencesRepository(sharedPreferences)
+}
+
+fun providerItemListUseCase(repository: IItemListRepository): ItemListUseCase {
+    return ItemListUseCase(repository)
 }
 
 fun providerItemListBindingDelegate(): ItemListBindingDelegate = ItemListBindingDelegate()

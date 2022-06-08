@@ -23,7 +23,7 @@ const val TIMEOUT_API = 30L
 
 val apiAuthModule = module {
     //Auth Api
-    single() { providerHttpLoggingInterceptor() }
+    single { providerHttpLoggingInterceptor() }
     single(named(HTTP_CLIENT_AUTH)) { providerHttpClientAuth(get(), get()) }
     single(named(RETROFIT_API_AUTH)) {
         providerRetrofit(

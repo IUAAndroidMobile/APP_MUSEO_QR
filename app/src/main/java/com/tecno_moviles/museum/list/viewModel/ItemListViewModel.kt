@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 class ItemListViewModel(
     private val itemListUseCase: ItemListUseCase,
     override val bindingDelegate: ItemListBindingDelegate,
-    private val presenterDelegate: ItemListPresenterDelegate
+    private val presenterDelegate: ItemListPresenterDelegate = ItemListPresenterDelegate(bindingDelegate)
 ): BaseViewModel(bindingDelegate, presenterDelegate) {
 
     fun callGetAllItems() {
