@@ -1,4 +1,4 @@
-package com.tecno_moviles.museum.item_detail
+package com.tecno_moviles.museum.item_detail.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.tecno_moviles.museum.base.BaseFragment
 import com.tecno_moviles.museum.databinding.FragmentItemDetailBinding
+import com.tecno_moviles.museum.item_detail.viewModel.ItemDetailViewModel
 
 class ItemDetailFragment: BaseFragment() {
 

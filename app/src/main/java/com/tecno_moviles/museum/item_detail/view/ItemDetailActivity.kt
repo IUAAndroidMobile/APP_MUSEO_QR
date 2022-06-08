@@ -1,9 +1,9 @@
-package com.tecno_moviles.museum.item_detail
+package com.tecno_moviles.museum.item_detail.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.ViewModelProvider
 import com.tecno_moviles.museum.databinding.ActivityItemDetailBinding
+import com.tecno_moviles.museum.item_detail.viewModel.ItemDetailViewModel
 
 class ItemDetailActivity : AppCompatActivity() {
 

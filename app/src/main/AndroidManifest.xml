@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Museo_Cano_Pacha">
         <activity
-            android:name="com.tecno_moviles.museum.item_detail.ItemDetailActivity"
+            android:name="com.tecno_moviles.museum.item_detail.view.ItemDetailActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="true" />
         <activity

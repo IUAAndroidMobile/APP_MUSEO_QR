@@ -8,9 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.tecno_moviles.museum.R
-import com.tecno_moviles.museum.list.usecase.Favorito
+import com.tecno_moviles.museum.list.usecase.MuseumItemList
 
-class MuseumListAdapter (private val data: List<Favorito>, private val listener: RecyclerViewOnClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder> () {
+class MuseumListAdapter (private val data: List<MuseumItemList>, private val listener: RecyclerViewOnClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder> () {
 
     lateinit var context : Context
 
@@ -22,9 +22,9 @@ class MuseumListAdapter (private val data: List<Favorito>, private val listener:
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val item = data[position]
-        (holder as MuseumListViewHolder).imgFav.setImageResource(context.resources.getIdentifier(item.imagenNombre, "drawable", context.packageName))
-        holder.tituloFav.text = item.titulo
-        holder.descipFavo.text = item.descrip
+        (holder as MuseumListViewHolder).imgFav.setImageResource(context.resources.getIdentifier(item.mainImageURL, "drawable", context.packageName))
+        holder.tituloFav.text = item.title
+        holder.descipFavo.text = item.introduction
     }
 
     override fun getItemCount(): Int = data.size

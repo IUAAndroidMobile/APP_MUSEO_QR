@@ -9,7 +9,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
 import com.tecno_moviles.museum.databinding.ActivityHomeBinding
-import com.tecno_moviles.museum.item_detail.ItemDetailActivity
+import com.tecno_moviles.museum.item_detail.view.ItemDetailActivity
 
 class HomeActivity : AppCompatActivity() {
 

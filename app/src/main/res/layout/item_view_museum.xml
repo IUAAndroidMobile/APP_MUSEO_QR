@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/white"
     android:padding="@dimen/dim_10dp">
 
@@ -21,7 +22,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginLeft="@dimen/dim_10dp"
+        android:layout_marginStart="@dimen/dim_10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/imgItemFavo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,11 +44,12 @@
 
         <TextView
             android:id="@+id/descripItemFavo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/grey"
             android:maxLines="4"
             android:ellipsize="end"
-            android:text="@string/txt_descrip_item_fav" />
+            tools:text="@string/txt_descrip_item_fav" />
     </LinearLayout>
 
     <View

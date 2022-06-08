@@ -1,4 +1,4 @@
-package com.tecno_moviles.museum.item_detail
+package com.tecno_moviles.museum.item_detail.viewModel
 
 import com.tecno_moviles.museum.base.BaseViewModel
 import com.tecno_moviles.museum.list.usecase.ItemListUseCase
