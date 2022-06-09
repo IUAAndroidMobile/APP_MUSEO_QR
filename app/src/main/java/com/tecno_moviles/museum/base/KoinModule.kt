@@ -2,6 +2,12 @@ package com.tecno_moviles.museum.base
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.tecno_moviles.museum.item_detail.datasource.repository.IItemDetailRepository
+import com.tecno_moviles.museum.item_detail.datasource.repository.ItemDetailRepository
+import com.tecno_moviles.museum.item_detail.datasource.service.IItemDetailService
+import com.tecno_moviles.museum.item_detail.usecase.ItemDetailUseCase
+import com.tecno_moviles.museum.item_detail.viewModel.ItemDetailBindingDelegate
+import com.tecno_moviles.museum.item_detail.viewModel.ItemDetailViewModel
 import com.tecno_moviles.museum.list.datasource.repository.IItemListRepository
 import com.tecno_moviles.museum.list.datasource.repository.ItemListRepository
 import com.tecno_moviles.museum.list.datasource.service.IItemListService
@@ -28,7 +34,6 @@ val appModule: Module = module {
      */
     single { providerSharedPreferences(context = get()) }
     single { providerAppPreferencesRepository(sharedPreferences = get()) }
-
 
     //end basic region
 
@@ -73,6 +78,25 @@ val appModule: Module = module {
     /*
     End List Region
      */
+
+    /*
+    Item Detail Region
+     */
+    viewModel { ItemDetailViewModel( itemDetailUseCase = get(), bindingDelegate = get())}
+    factory { providerItemDetailBindingDelegate() }
+
+    //Inject Use Case
+    single { providerItemDetailUseCase(get()) }
+
+    //Inject Repository
+    single<IItemDetailRepository> { ItemDetailRepository(service = get()) }
+
+    //Inject Service
+    single { providerItemDetailService(get(named(RETROFIT_API_AUTH))) }
+
+    /*
+    End Item detail region
+     */
 }
 
 fun providerSharedPreferences(context: Context): SharedPreferences {
@@ -101,5 +125,15 @@ fun providerItemListBindingDelegate(): ItemListBindingDelegate = ItemListBinding
 
 fun providerItemListService(retrofit: Retrofit): IItemListService {
     return retrofit.create(IItemListService::class.java)
+}
+
+fun providerItemDetailBindingDelegate(): ItemDetailBindingDelegate = ItemDetailBindingDelegate()
+
+fun providerItemDetailUseCase(repository: IItemDetailRepository): ItemDetailUseCase {
+    return ItemDetailUseCase(repository)
+}
+
+fun providerItemDetailService(retrofit: Retrofit): IItemDetailService {
+    return retrofit.create(IItemDetailService::class.java)
 }
 

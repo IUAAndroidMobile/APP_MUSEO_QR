@@ -22,6 +22,7 @@ class SplashViewModel(
                 }
                 is BaseResultWrapper.ApiSuccess -> {
                     //presenterDelegate
+
                 }
             }
         }

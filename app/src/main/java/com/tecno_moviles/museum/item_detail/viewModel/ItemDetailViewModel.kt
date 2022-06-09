@@ -1,9 +1,15 @@
 package com.tecno_moviles.museum.item_detail.viewModel
 
 import com.tecno_moviles.museum.base.BaseViewModel
-import com.tecno_moviles.museum.list.usecase.ItemListUseCase
+import com.tecno_moviles.museum.item_detail.usecase.ItemDetailUseCase
 
 class ItemDetailViewModel(
-    private val useCase: ItemListUseCase
-) {
+    private val itemDetailUseCase: ItemDetailUseCase,
+    override val bindingDelegate: ItemDetailBindingDelegate,
+    private val presenterDelegate: ItemDetailPresenterDelegate = ItemDetailPresenterDelegate(bindingDelegate)
+): BaseViewModel(bindingDelegate, presenterDelegate) {
+
+
+
+
 }

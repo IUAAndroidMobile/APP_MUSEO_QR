@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import com.tecno_moviles.museum.base.BaseFragment
 import com.tecno_moviles.museum.databinding.FragmentItemDetailBinding
 import com.tecno_moviles.museum.item_detail.viewModel.ItemDetailViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ItemDetailFragment: BaseFragment() {
 
-    private var binding: FragmentItemDetailBinding? = null
+    private val itemDetailViewModel: ItemDetailViewModel by viewModel()
 
-    private lateinit var viewModel: ItemDetailViewModel
+    private var binding: FragmentItemDetailBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,

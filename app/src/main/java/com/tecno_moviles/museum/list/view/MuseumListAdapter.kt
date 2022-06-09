@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.tecno_moviles.museum.R
 import com.tecno_moviles.museum.list.usecase.MuseumItemList
 
@@ -25,6 +26,12 @@ class MuseumListAdapter (private val data: List<MuseumItemList>, private val lis
         (holder as MuseumListViewHolder).imgFav.setImageResource(context.resources.getIdentifier(item.mainImageURL, "drawable", context.packageName))
         holder.tituloFav.text = item.title
         holder.descipFavo.text = item.introduction
+
+        Glide
+            .with(holder.itemView)
+            .load(item.mainImageURL)
+            .centerCrop()
+            .into(holder.imgFav)
     }
 
     override fun getItemCount(): Int = data.size
