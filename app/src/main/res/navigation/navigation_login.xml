@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/opcionesLoginFragment"
-        android:name="com.tecno_moviles.museo_cano_pacha.login.OpcionesLoginFragment"
+        android:name="com.tecno_moviles.museum.login.OpcionesLoginFragment"
         android:label="OpcionesLoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.tecno_moviles.museo_cano_pacha.login.LoginFragment"
+        android:name="com.tecno_moviles.museum.login.LoginFragment"
         android:label="LoginFragment"
         tools:layout="@layout/fragment_login">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/registroFragment"
-        android:name="com.tecno_moviles.museo_cano_pacha.login.RegistroFragment"
+        android:name="com.tecno_moviles.museum.login.RegistroFragment"
         android:label="RegistroFragment"
         tools:layout="@layout/fragment_registro">
         <action
@@ -40,12 +40,12 @@
     </fragment>
     <activity
         android:id="@+id/splashExitoActivity"
-        android:name="com.tecno_moviles.museo_cano_pacha.splash.SplashExitoActivity"
+        android:name="com.tecno_moviles.museum.splash.view.SplashExitoActivity"
         android:label="activity_splash_exito"
         tools:layout="@layout/activity_splash_exito" />
     <fragment
         android:id="@+id/recuperarContrasenaFragment2"
-        android:name="com.tecno_moviles.museo_cano_pacha.login.RecuperarContrasenaFragment"
+        android:name="com.tecno_moviles.museum.login.RecuperarContrasenaFragment"
         android:label="RecuperarContrasenaFragment"
         tools:layout="@layout/fragment_recuperar_contrasena">
         <action

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.tecno_moviles.museo_cano_pacha.home.HomeFragment"
+        android:name="com.tecno_moviles.museum.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -17,13 +17,13 @@
 
     <fragment
         android:id="@+id/nav_ayuda"
-        android:name="com.tecno_moviles.museo_cano_pacha.ui.ayuda.AyudaFragment"
+        android:name="com.tecno_moviles.museum.ui.ayuda.AyudaFragment"
         android:label="@string/menu_ayuda"
         tools:layout="@layout/fragment_ayuda" />
 
     <fragment
         android:id="@+id/favoritosFragment"
-        android:name="com.tecno_moviles.museo_cano_pacha.list.ItemsListFragment"
+        android:name="com.tecno_moviles.museum.list.view.ItemsListFragment"
         android:label="@string/favoritos"
         tools:layout="@layout/fragment_items_list"/>
 </navigation>
