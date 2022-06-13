@@ -6,23 +6,17 @@
     android:layout_height="match_parent"
     android:background="@color/primary_color"
     tools:context=".splash.view.SplashActivity">
-    
-    <View
-        android:layout_width="@dimen/dim_splash"
-        android:layout_height="@dimen/dim_splash"
-        android:background="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
-    <ImageView
-        android:layout_width="@dimen/dim_splash"
-        android:layout_height="@dimen/dim_splash"
-        android:src="@drawable/undef_main_icon"
+    <fragment
+        android:id="@+id/nav_host_fragment_splash"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/splash_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

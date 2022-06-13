@@ -7,23 +7,25 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.tecno_moviles.museum.home.HomeFragment"
+        android:name="com.iua.museum.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_nav_home_to_favoritosFragment"
-            app:destination="@id/favoritosFragment" />
+            android:id="@+id/action_nav_home_to_items_list_fragment"
+            app:destination="@id/itemsListFragment" />
+        <action
+            android:id="@+id/action_nav_home_to_helpFragment"
+            app:destination="@id/helpFragment" />
     </fragment>
 
     <fragment
-        android:id="@+id/nav_ayuda"
-        android:name="com.tecno_moviles.museum.ui.ayuda.AyudaFragment"
-        android:label="@string/menu_ayuda"
-        tools:layout="@layout/fragment_ayuda" />
-
-    <fragment
-        android:id="@+id/favoritosFragment"
-        android:name="com.tecno_moviles.museum.list.view.ItemsListFragment"
+        android:id="@+id/itemsListFragment"
+        android:name="com.iua.museum.list.view.ItemsListFragment"
         android:label="@string/favoritos"
         tools:layout="@layout/fragment_items_list"/>
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.iua.museum.help.ui.HelpFragment"
+        android:label="HelpFragment"
+        tools:layout="@layout/fragment_help"/>
 </navigation>

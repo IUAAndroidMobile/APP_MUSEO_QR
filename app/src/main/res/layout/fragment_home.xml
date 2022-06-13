@@ -7,18 +7,27 @@
     android:background="@color/primary_color"
     tools:context=".home.HomeFragment">
 
+    <ImageView
+        android:id="@+id/help_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_help"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="@dimen/dim_10dp" />
+
     <TextView
         android:id="@+id/text_tittle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dim_30dp"
+        android:layout_marginTop="@dimen/dim_10dp"
         android:fontFamily="@font/george_bold"
         android:text="@string/home_title"
         android:textColor="@color/white"
         android:textSize="@dimen/dim_50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/help_icon" />
 
     <TextView
         android:id="@+id/text_description"
