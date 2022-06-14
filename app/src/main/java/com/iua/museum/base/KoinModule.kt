@@ -20,10 +20,14 @@ import com.iua.museum.preferences.IAppPreferencesRepository
 import com.iua.museum.splash.datasource.repository.ISplashRepository
 import com.iua.museum.splash.datasource.repository.SplashRepository
 import com.iua.museum.splash.datasource.service.ISplashService
+import com.iua.museum.splash.usecase.ShowTermsAndConditionsScreenUseCase
 import com.iua.museum.splash.usecase.ShowWelcomeScreenUseCase
 import com.iua.museum.splash.usecase.SplashUseCase
 import com.iua.museum.splash.viewModel.SplashBindingDelegate
 import com.iua.museum.splash.viewModel.SplashViewModel
+import com.iua.museum.terms_conditions.usecase.SignTermsAndConditionsUseCase
+import com.iua.museum.terms_conditions.viewModel.TermsAndConditionsBindingDelegate
+import com.iua.museum.terms_conditions.viewModel.TermsAndConditionsViewModel
 import org.koin.android.ext.koin.androidApplication
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.module.Module
@@ -46,6 +50,7 @@ val appModule: Module = module {
      */
     viewModel{ SplashViewModel(
         splashUseCase = get(),
+        showTermsAndConditionsScreenUseCase = get(),
         showWelcomeScreenUseCase = get(),
         preferencesRepository = get(),
         bindingDelegate = get()) }
@@ -53,6 +58,7 @@ val appModule: Module = module {
 
     //Inject Use case
     single { providerSplashUseCase(get()) }
+    single { providerShowTermsAndConditions(get()) }
     single { providerShowWelcomeScreenUseCase(get()) }
 
     //Inject Repository
@@ -63,6 +69,22 @@ val appModule: Module = module {
 
     /*
     end splash region
+     */
+
+    /*
+    Terms And Conditions Region
+     */
+    viewModel {
+        TermsAndConditionsViewModel(
+            signTermsAndConditionsUseCase = get(),
+            bindingDelegate = get()
+        ) }
+    factory { providerTermsAndConditionsBindingDelegate() }
+
+    // Inject Use Case
+    single { providerSignTermsAndConditionsUseCase(get()) }
+    /*
+    End Terms And Conditions Region
      */
 
     /*
@@ -122,12 +144,22 @@ fun providerSplashUseCase(repository: ISplashRepository) : SplashUseCase {
     return SplashUseCase(repository)
 }
 
+fun providerShowTermsAndConditions(repository: IAppPreferencesRepository): ShowTermsAndConditionsScreenUseCase {
+    return ShowTermsAndConditionsScreenUseCase(repository)
+}
+
 fun providerShowWelcomeScreenUseCase(repository: IAppPreferencesRepository): ShowWelcomeScreenUseCase {
     return ShowWelcomeScreenUseCase(repository)
 }
 
 fun providerSplashService(retrofit: Retrofit): ISplashService {
     return retrofit.create(ISplashService::class.java)
+}
+
+fun providerTermsAndConditionsBindingDelegate() : TermsAndConditionsBindingDelegate = TermsAndConditionsBindingDelegate()
+
+fun providerSignTermsAndConditionsUseCase(repository: IAppPreferencesRepository) : SignTermsAndConditionsUseCase {
+    return SignTermsAndConditionsUseCase(repository)
 }
 
 fun providerItemListUseCase(repository: IItemListRepository): ItemListUseCase {

@@ -13,14 +13,22 @@
         <action
             android:id="@+id/action_splashFragment_to_helpFragment"
             app:destination="@id/helpFragment"
-            app:launchSingleTop="true"
-            />
+            app:launchSingleTop="true" />
+        <action
+            android:id="@+id/action_splashFragment_to_termsAndConditionsFragment"
+            app:destination="@id/termsAndConditionsFragment"
+            app:launchSingleTop="true" />
     </fragment>
 
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.iua.museum.help.ui.HelpFragment"
         android:label="HelpFragment"
-        tools:layout="@layout/fragment_help"/>
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/termsAndConditionsFragment"
+        android:name="com.iua.museum.terms_conditions.view.TermsAndConditionsFragment"
+        android:label="TermsAndConditionsFragment"
+        tools:layout="@layout/fragment_terms_and_conditions" />
 
 </navigation>

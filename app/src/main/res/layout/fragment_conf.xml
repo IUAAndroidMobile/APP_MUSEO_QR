@@ -165,7 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/dim_20dp"
-        android:background="@drawable/rounded_btn"
+        android:background="@drawable/rounded_btn_enabled"
         android:paddingStart="@dimen/dim_15dp"
         android:paddingEnd="@dimen/dim_15dp"
         android:text="@string/guardar"

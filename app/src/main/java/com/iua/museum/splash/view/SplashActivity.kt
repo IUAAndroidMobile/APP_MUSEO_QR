@@ -26,11 +26,22 @@ class SplashActivity : AppCompatActivity() {
 
         //Init observers
         splashViewModel.bindingDelegate.setIsNewUser.observe(this, ::onIsNewUserEvent)
+        splashViewModel.bindingDelegate.setTermsAndCondition.observe(this, ::showTermsAndConditions)
 
         splashViewModel.callGetAuthToken()
 
         timer.schedule(2000) {
-            splashViewModel.isNewUser()
+            splashViewModel.shouldShowTermsAndConditions()
+        }
+    }
+
+    private fun showTermsAndConditions(showTermsAndCondition: Boolean?) {
+        showTermsAndCondition?.let {
+            if (!it) {
+                Navigation.findNavController(this, R.id.nav_host_fragment_splash).navigate(SplashFragmentDirections.actionSplashFragmentToTermsAndConditionsFragment())
+            } else {
+                splashViewModel.isNewUser()
+            }
         }
     }
 

@@ -6,12 +6,14 @@ import com.iua.museum.base.BaseViewModel
 import com.iua.museum.base.support.BaseResultWrapper
 import com.iua.museum.preferences.IAppPreferencesRepository
 import com.iua.museum.splash.datasource.entity.SplashEntityRequest
+import com.iua.museum.splash.usecase.ShowTermsAndConditionsScreenUseCase
 import com.iua.museum.splash.usecase.ShowWelcomeScreenUseCase
 import com.iua.museum.splash.usecase.SplashUseCase
 import kotlinx.coroutines.launch
 
 class SplashViewModel(
     private val splashUseCase: SplashUseCase,
+    private val showTermsAndConditionsScreenUseCase: ShowTermsAndConditionsScreenUseCase,
     private val showWelcomeScreenUseCase: ShowWelcomeScreenUseCase,
     private val preferencesRepository: IAppPreferencesRepository,
     override val bindingDelegate: SplashBindingDelegate,
@@ -26,7 +28,19 @@ class SplashViewModel(
                 }
                 is BaseResultWrapper.ApiSuccess -> {
                     //presenterDelegate
+                }
+            }
+        }
+    }
 
+    fun shouldShowTermsAndConditions() {
+        viewModelScope.launch {
+            when(val response = showTermsAndConditionsScreenUseCase.invoke(SplashEntityRequest())) {
+                is BaseResultWrapper.ApiError -> {
+                    Log.d("ERROR", response.error.toString())
+                }
+                is BaseResultWrapper.ApiSuccess -> {
+                    presenterDelegate.checkShowTermsAndConditions(response.value)
                 }
             }
         }
