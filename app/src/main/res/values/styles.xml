@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Museo_Cano_Pacha" parent="Theme.AppCompat.Light">
+    <style name="Theme.Museo_Cano_Pacha" parent="Theme.MaterialComponents.Light">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryVariant">@color/teal_700</item>
@@ -17,4 +17,13 @@
         <item name="android:fontFamily">@font/george_semibold</item>
 
     </style>
+
+
+    <style name="main_button" parent="Widget.AppCompat.Button">
+        <item name="android:backgroundTint">@drawable/main_btn_state</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">@dimen/dim_15dp</item>
+        <item name="cornerRadius">@dimen/dim_10dp</item>
+    </style>
+
 </resources>

@@ -6,4 +6,7 @@ interface IAppPreferencesRepository {
 
     fun setIsNewUser(isNewUser: Boolean)
     fun getIsNewUser(): Boolean
+
+    fun setAcceptTermsAndConditions(acceptTermsAndConditions: Boolean)
+    fun getAcceptTermsAndConditions(): Boolean
 }
