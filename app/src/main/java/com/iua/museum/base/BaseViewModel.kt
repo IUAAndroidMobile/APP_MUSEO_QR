@@ -1,0 +1,18 @@
+package com.iua.museum.base
+
+import androidx.lifecycle.ViewModel
+import com.iua.museum.preferences.IAppPreferencesRepository
+import org.koin.core.context.GlobalContext
+
+open class BaseViewModel(
+    open val bindingDelegate: BaseBindingDelegate,
+    private val presentationDelegate: BasePresenterDelegate
+) : ViewModel() {
+
+    private val appPreferencesRepository: IAppPreferencesRepository by lazy { GlobalContext.get().get<IAppPreferencesRepository>() }
+
+    fun callLogout() {
+        //TODO: Expire authorization here if necessary.
+    }
+
+}
