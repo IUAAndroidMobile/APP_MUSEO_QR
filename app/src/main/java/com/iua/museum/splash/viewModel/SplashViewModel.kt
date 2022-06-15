@@ -15,7 +15,6 @@ class SplashViewModel(
     private val splashUseCase: SplashUseCase,
     private val showTermsAndConditionsScreenUseCase: ShowTermsAndConditionsScreenUseCase,
     private val showWelcomeScreenUseCase: ShowWelcomeScreenUseCase,
-    private val preferencesRepository: IAppPreferencesRepository,
     override val bindingDelegate: SplashBindingDelegate,
     private val presenterDelegate: SplashPresenterDelegate = SplashPresenterDelegate(bindingDelegate)
 ): BaseViewModel(bindingDelegate, presenterDelegate) {
@@ -56,12 +55,6 @@ class SplashViewModel(
                     presenterDelegate.checkIsNewUser(response.value)
                 }
             }
-        }
-    }
-
-    fun saveIsNewUser() {
-        viewModelScope.launch {
-            preferencesRepository.setIsNewUser(false)
         }
     }
 

@@ -15,4 +15,8 @@ open class BaseViewModel(
         //TODO: Expire authorization here if necessary.
     }
 
+    fun saveIsNewUser() {
+        appPreferencesRepository.setIsNewUser(false)
+    }
+
 }

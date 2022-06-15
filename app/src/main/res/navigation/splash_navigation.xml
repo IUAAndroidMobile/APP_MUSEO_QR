@@ -13,10 +13,14 @@
         <action
             android:id="@+id/action_splashFragment_to_helpFragment"
             app:destination="@id/helpFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/splashFragment"
             app:launchSingleTop="true" />
         <action
             android:id="@+id/action_splashFragment_to_termsAndConditionsFragment"
             app:destination="@id/termsAndConditionsFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@+id/splashFragment"
             app:launchSingleTop="true" />
     </fragment>
 
@@ -29,6 +33,10 @@
         android:id="@+id/termsAndConditionsFragment"
         android:name="com.iua.museum.terms_conditions.view.TermsAndConditionsFragment"
         android:label="TermsAndConditionsFragment"
-        tools:layout="@layout/fragment_terms_and_conditions" />
+        tools:layout="@layout/fragment_terms_and_conditions" >
+        <action
+            android:id="@+id/action_termsAndConditionsFragment_to_helpFragment"
+            app:destination="@id/helpFragment" />
+    </fragment>
 
 </navigation>

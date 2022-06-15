@@ -12,4 +12,12 @@ class TermsAndConditionsBindingDelegate: BaseBindingDelegate() {
         _setTermsAndConditionsSignedLiveData.value = termsAndConditionsSign
     }
     //End region sign terms and conditions
+
+    //Region show welcome screen
+    private val _setIsNewUserLiveData = MutableLiveData<Boolean>()
+    val setIsNewUser : LiveData<Boolean> get() = _setIsNewUserLiveData
+    fun setIsNewUserPostValue(isNewUser: Boolean) {
+        _setIsNewUserLiveData.value = isNewUser
+    }
+    //End region welcome screen
 }

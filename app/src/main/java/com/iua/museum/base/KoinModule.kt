@@ -52,7 +52,6 @@ val appModule: Module = module {
         splashUseCase = get(),
         showTermsAndConditionsScreenUseCase = get(),
         showWelcomeScreenUseCase = get(),
-        preferencesRepository = get(),
         bindingDelegate = get()) }
     factory { providerSplashBindingDelegate() }
 
@@ -77,6 +76,7 @@ val appModule: Module = module {
     viewModel {
         TermsAndConditionsViewModel(
             signTermsAndConditionsUseCase = get(),
+            showWelcomeScreenUseCase = get(),
             bindingDelegate = get()
         ) }
     factory { providerTermsAndConditionsBindingDelegate() }

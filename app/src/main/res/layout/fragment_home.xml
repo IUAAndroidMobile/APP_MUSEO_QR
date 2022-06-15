@@ -11,10 +11,10 @@
         android:id="@+id/help_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dim_10dp"
         android:background="@drawable/ic_help"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_margin="@dimen/dim_10dp" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_tittle"
@@ -33,10 +33,10 @@
         android:id="@+id/text_description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/george_regular"
-        android:text="@string/home_description"
         android:layout_margin="@dimen/dim_10dp"
+        android:fontFamily="@font/george_regular"
         android:gravity="center"
+        android:text="@string/home_description"
         android:textColor="@color/white"
         android:textSize="@dimen/dim_18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,49 +53,40 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_description" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_scan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dim_40dp"
-        android:elevation="@dimen/dim_5dp"
-        android:background="@drawable/rounded_btn_enabled"
-        android:paddingStart="@dimen/dim_15dp"
-        android:paddingEnd="@dimen/dim_15dp"
-        android:text="@string/btn_escanear_qr"
-        android:textColor="@color/white"
-        android:textSize="@dimen/dim_18sp"
         android:layout_margin="@dimen/dim_15dp"
+        android:layout_marginEnd="@dimen/dim_40dp"
+        android:text="@string/btn_escanear_qr"
+        android:theme="@style/main_button"
         app:layout_constraintBottom_toTopOf="@id/text_about"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_see_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_btn_enabled"
-        android:paddingStart="@dimen/dim_15dp"
-        android:paddingEnd="@dimen/dim_15dp"
-        android:text="@string/btn_ver_contenido"
-        android:textColor="@color/white"
-        android:textSize="@dimen/dim_18sp"
         android:layout_margin="@dimen/dim_15dp"
+        android:text="@string/btn_ver_contenido"
+        android:theme="@style/main_button"
         app:layout_constraintBottom_toTopOf="@id/text_about"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/text_about"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/george_light"
-        android:text="@string/home_about"
         android:layout_margin="@dimen/dim_6sp"
+        android:fontFamily="@font/george_light"
         android:gravity="center"
+        android:text="@string/home_about"
         android:textColor="@color/white"
         android:textSize="@dimen/dim_18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

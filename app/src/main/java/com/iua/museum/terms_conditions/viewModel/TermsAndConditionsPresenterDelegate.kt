@@ -8,4 +8,8 @@ class TermsAndConditionsPresenterDelegate(private val termsAndConditionsBindingD
         termsAndConditionsBindingDelegate.setTermsAndConditionsSignedPostValue(termsAndConditionsSigned)
     }
 
+    fun checkIsNewUser(showWelcomeScreen: Boolean) {
+        termsAndConditionsBindingDelegate.setIsNewUserPostValue(showWelcomeScreen)
+    }
+
 }
