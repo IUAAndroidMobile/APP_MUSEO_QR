@@ -102,10 +102,10 @@ val appModule: Module = module {
     single { providerItemListUseCase(get())}
 
     //Inject Repository
-    single<IItemListRepository> { ItemListRepository(service = get()) }
+    single<IItemListRepository> { ItemListRepository(service = get((named("ApiPrivate")) )) }
 
     //Inject Service
-    single { providerItemListService(get(named(RETROFIT_API_AUTH))) }
+    single(named("ApiPrivate"))  { providerItemListService(get(named(RETROFIT_API_AUTH))) }
     /*
     End List Region
      */

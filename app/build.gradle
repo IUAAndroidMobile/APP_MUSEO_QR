@@ -32,7 +32,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField("String", "BASE_URL", "\"https://localhost/\"")
+            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
             buildConfigField("String", "BASE_APP_USER_NAME", "\"nico\"")
             buildConfigField("String", "BASE_APP_USER_PASSWORD", "\"12345\"")
             debuggable true

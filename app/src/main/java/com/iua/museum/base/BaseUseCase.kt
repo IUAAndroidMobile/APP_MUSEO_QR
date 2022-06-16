@@ -27,7 +27,7 @@ abstract class BaseUseCase<RequestType, ResponseType>() where ResponseType : Any
             Log.d(TAG, "Error: $e cause: ${e.cause}")
             BaseResultWrapper.ApiError(apiErrorHandle.traceErrorException(e))
         } catch (e: Exception) {
-            Log.d(TAG, "Error: $e cause: ${e.cause}")
+            Log.d(TAG, "Error 3: $e cause: ${e.cause}")
             BaseResultWrapper.ApiError(apiErrorHandle.traceErrorException(e))
         }
     }

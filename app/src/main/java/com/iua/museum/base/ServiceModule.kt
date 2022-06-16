@@ -18,7 +18,7 @@ const val HTTP_CLIENT_AUTH = "OkHttpClientAuth"
 
 const val HEADER_ACCESS_TOKEN = "access_token"
 
-const val TIMEOUT_API = 30L
+const val TIMEOUT_API = 3000L
 
 val apiAuthModule = module {
     //Auth Api
@@ -27,8 +27,7 @@ val apiAuthModule = module {
     single(named(RETROFIT_API_AUTH)) {
         providerRetrofit(
             url = BuildConfig.BASE_URL,
-            client = get(named(HTTP_CLIENT_AUTH))
-        )
+            client = get(named(HTTP_CLIENT_AUTH)))
     }
 }
 
@@ -44,13 +43,12 @@ fun providerHttpClientAuth(
     httpLoggingInterceptor: HttpLoggingInterceptor?,
     appPreferencesRepository: IAppPreferencesRepository
 ): OkHttpClient {
-
     val httpClientBuilder = generateCustomClient(TIMEOUT_API)
     httpClientBuilder.addInterceptor { chain: Interceptor.Chain ->
-        //val builder = generateBasicRequest(chain, appPreferencesRepository)
-        val builder = Request.Builder()
+        val builder = generateBasicRequest(chain, appPreferencesRepository)
+        //val builder = Request.Builder()
         //builder.addHeader(HEADER_APP_VERSION, BuildConfig.VERSION_NAME)
-        builder.addHeader(HEADER_ACCESS_TOKEN, appPreferencesRepository.getTokenU()!!)
+        //builder.addHeader(HEADER_ACCESS_TOKEN, appPreferencesRepository.getTokenU()!!)
         //builder.addHeader(HEADER_CLIENT_ID, BuildConfig.CI_TUNKI_ID)
         chain.proceed(builder.build())
     }
