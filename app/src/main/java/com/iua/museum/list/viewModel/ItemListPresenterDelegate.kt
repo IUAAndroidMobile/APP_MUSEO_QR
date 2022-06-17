@@ -8,5 +8,4 @@ class ItemListPresenterDelegate(private val itemListBindingDelegate: ItemListBin
     fun showSuccessList(data: ItemListUseCaseModel) {
         itemListBindingDelegate.setItemListPostValue(data)
     }
-
 }

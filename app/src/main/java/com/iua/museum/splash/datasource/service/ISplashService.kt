@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface ISplashService {
 
-    @GET("api/auth")
+    @GET("/api/auth")
     suspend fun getAuthToken(): SplashEntityResponse
 }

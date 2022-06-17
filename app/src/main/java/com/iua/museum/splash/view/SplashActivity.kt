@@ -25,8 +25,8 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         //Init observers
-        splashViewModel.bindingDelegate.setIsNewUser.observe(this, ::onIsNewUserEvent)
-        splashViewModel.bindingDelegate.setTermsAndCondition.observe(this, ::showTermsAndConditions)
+        splashViewModel.splashBindingDelegate.setIsNewUser.observe(this, ::onIsNewUserEvent)
+        splashViewModel.splashBindingDelegate.setTermsAndCondition.observe(this, ::showTermsAndConditions)
 
         splashViewModel.callGetAuthToken()
 

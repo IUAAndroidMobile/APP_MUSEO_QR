@@ -52,12 +52,12 @@ val appModule: Module = module {
         splashUseCase = get(),
         showTermsAndConditionsScreenUseCase = get(),
         showWelcomeScreenUseCase = get(),
-        bindingDelegate = get()) }
+        splashBindingDelegate = get()) }
     factory { providerSplashBindingDelegate() }
 
     //Inject Use case
     single { providerSplashUseCase(get()) }
-    single { providerShowTermsAndConditions(get()) }
+    single { providerShowTermsAndConditionsUseCase(get()) }
     single { providerShowWelcomeScreenUseCase(get()) }
 
     //Inject Repository
@@ -93,7 +93,7 @@ val appModule: Module = module {
     viewModel {
         ItemListViewModel(
             itemListUseCase = get(),
-            bindingDelegate = get()
+            itemListBindingDelegate = get()
         )
     }
     factory { providerItemListBindingDelegate() }
@@ -102,7 +102,7 @@ val appModule: Module = module {
     single { providerItemListUseCase(get())}
 
     //Inject Repository
-    single<IItemListRepository> { ItemListRepository(service = get((named("ApiPrivate")) )) }
+    single<IItemListRepository> { ItemListRepository(service = get((named("ApiPrivate")))) }
 
     //Inject Service
     single(named("ApiPrivate"))  { providerItemListService(get(named(RETROFIT_API_AUTH))) }
@@ -138,13 +138,15 @@ fun providerAppPreferencesRepository(sharedPreferences: SharedPreferences): IApp
     return AppPreferencesRepository(sharedPreferences)
 }
 
-fun providerSplashBindingDelegate(): SplashBindingDelegate = SplashBindingDelegate()
+fun providerSplashBindingDelegate(): SplashBindingDelegate {
+    return SplashBindingDelegate()
+}
 
 fun providerSplashUseCase(repository: ISplashRepository) : SplashUseCase {
     return SplashUseCase(repository)
 }
 
-fun providerShowTermsAndConditions(repository: IAppPreferencesRepository): ShowTermsAndConditionsScreenUseCase {
+fun providerShowTermsAndConditionsUseCase(repository: IAppPreferencesRepository): ShowTermsAndConditionsScreenUseCase {
     return ShowTermsAndConditionsScreenUseCase(repository)
 }
 
@@ -156,7 +158,9 @@ fun providerSplashService(retrofit: Retrofit): ISplashService {
     return retrofit.create(ISplashService::class.java)
 }
 
-fun providerTermsAndConditionsBindingDelegate() : TermsAndConditionsBindingDelegate = TermsAndConditionsBindingDelegate()
+fun providerTermsAndConditionsBindingDelegate() : TermsAndConditionsBindingDelegate {
+    return TermsAndConditionsBindingDelegate()
+}
 
 fun providerSignTermsAndConditionsUseCase(repository: IAppPreferencesRepository) : SignTermsAndConditionsUseCase {
     return SignTermsAndConditionsUseCase(repository)
@@ -166,7 +170,9 @@ fun providerItemListUseCase(repository: IItemListRepository): ItemListUseCase {
     return ItemListUseCase(repository)
 }
 
-fun providerItemListBindingDelegate(): ItemListBindingDelegate = ItemListBindingDelegate()
+fun providerItemListBindingDelegate(): ItemListBindingDelegate {
+    return ItemListBindingDelegate()
+}
 
 fun providerItemListService(retrofit: Retrofit): IItemListService {
     return retrofit.create(IItemListService::class.java)

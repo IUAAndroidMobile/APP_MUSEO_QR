@@ -1,5 +1,6 @@
 package com.iua.museum.list.datasource.repository
 
+import android.util.Log
 import com.iua.museum.list.datasource.service.IItemListService
 import com.iua.museum.list.usecase.ItemListUseCaseModel
 import com.iua.museum.list.usecase.toUserModel
@@ -7,7 +8,10 @@ import com.iua.museum.list.usecase.toUserModel
 class ItemListRepository(private val service: IItemListService): IItemListRepository {
 
     @Throws(Exception::class)
-    override suspend fun callGetAllItems(): ItemListUseCaseModel = service.getItemList().toUserModel()
+    override suspend fun callGetAllItems(): ItemListUseCaseModel {
+        Log.d("ITEM_LIST_SERVICE", service.toString())
+        return service.getItemList().toUserModel()
+    }
 
     /**override suspend fun callGetAllItems(): ItemListUseCaseModel {
         return ItemListUseCaseModel(mutableListOf<MuseumItemList>(

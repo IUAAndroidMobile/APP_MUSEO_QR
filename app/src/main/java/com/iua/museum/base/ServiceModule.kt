@@ -18,12 +18,14 @@ const val HTTP_CLIENT_AUTH = "OkHttpClientAuth"
 
 const val HEADER_ACCESS_TOKEN = "access_token"
 
-const val TIMEOUT_API = 3000L
+const val TIMEOUT_API = 30L
 
 val apiAuthModule = module {
     //Auth Api
+    single { AuthInterceptor() }
     single { providerHttpLoggingInterceptor() }
     single(named(HTTP_CLIENT_AUTH)) { providerHttpClientAuth(get(), get()) }
+    //single(named(HTTP_CLIENT_AUTH)) { provideOkHttpClient(get()) }
     single(named(RETROFIT_API_AUTH)) {
         providerRetrofit(
             url = BuildConfig.BASE_URL,
@@ -60,6 +62,20 @@ fun providerHttpClientAuth(
     return httpClientBuilder.build()
 }
 
+class AuthInterceptor() : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        var req = chain.request()
+        // DONT INCLUDE API KEYS IN YOUR SOURCE CODE
+        val url = req.url.newBuilder().addQueryParameter("APPID", "your_key_here").build()
+        req = req.newBuilder().url(url).build()
+        return chain.proceed(req)
+    }
+}
+
+fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
+    return OkHttpClient().newBuilder().addInterceptor(authInterceptor).build()
+}
+
 
 fun providerHttpLoggingInterceptor(): HttpLoggingInterceptor {
     val logging = HttpLoggingInterceptor()
@@ -70,7 +86,6 @@ fun providerHttpLoggingInterceptor(): HttpLoggingInterceptor {
 
 fun generateCustomClient(timeout: Long): OkHttpClient.Builder {
     return OkHttpClient.Builder()
-        .addInterceptor(BodyInterceptor())
         .connectTimeout(timeout, TimeUnit.SECONDS)
         .writeTimeout(timeout, TimeUnit.SECONDS)
         .readTimeout(timeout, TimeUnit.SECONDS)

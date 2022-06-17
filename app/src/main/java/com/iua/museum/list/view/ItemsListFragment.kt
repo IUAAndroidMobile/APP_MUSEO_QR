@@ -32,11 +32,6 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
 
         recyclerView = binding!!.recyclerFavoritos
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
-        //recyclerView.adapter = MuseumListAdapter(favoritosList, this)
-
-
-
-
 
         return binding!!.root
     }
@@ -45,7 +40,7 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
         super.onViewCreated(view, savedInstanceState)
         itemListViewModel.callGetAllItems()
 
-        itemListViewModel.bindingDelegate.setItemList.observe(viewLifecycleOwner, ::onItemListReceived)
+        itemListViewModel.itemListBindingDelegate.setItemList.observe(viewLifecycleOwner, ::onItemListReceived)
     }
 
     override fun onItemClick(position: Int) {
