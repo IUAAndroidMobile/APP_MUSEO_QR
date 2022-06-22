@@ -3,6 +3,8 @@ package com.iua.museum.base
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
+import com.iua.museum.home.viewModel.HomeBindingDelegate
+import com.iua.museum.home.viewModel.HomeViewModel
 import com.iua.museum.item_detail.datasource.repository.IItemDetailRepository
 import com.iua.museum.item_detail.datasource.repository.ItemDetailRepository
 import com.iua.museum.item_detail.datasource.service.IItemDetailService
@@ -37,17 +39,12 @@ import retrofit2.Retrofit
 
 val appModule: Module = module {
 
-    /*
-    Basic region
-     */
+    //*** Basic region ***
     single { providerSharedPreferences(androidApplication()) }
     single { providerAppPreferencesRepository(sharedPreferences = get()) }
+    //*** end basic region ***
 
-    //end basic region
-
-    /*
-    splash region
-     */
+    //*** Splash region ***
     viewModel{ SplashViewModel(
         splashUseCase = get(),
         showTermsAndConditionsScreenUseCase = get(),
@@ -66,13 +63,19 @@ val appModule: Module = module {
     // Inject Service
     single { providerSplashService(get(named(RETROFIT_API_AUTH))) }
 
-    /*
-    end splash region
-     */
+    //*** end splash region ***
+    //*** Home region ***
+    viewModel {
+        HomeViewModel(
+            homeBindingDelegate = get()
+        )
+    }
+    factory { providerHomeBindingDelegate() }
 
-    /*
-    Terms And Conditions Region
-     */
+    //*** end Home Region ***
+
+
+    //*** Terms And Conditions Region ***
     viewModel {
         TermsAndConditionsViewModel(
             signTermsAndConditionsUseCase = get(),
@@ -83,13 +86,11 @@ val appModule: Module = module {
 
     // Inject Use Case
     single { providerSignTermsAndConditionsUseCase(get()) }
-    /*
-    End Terms And Conditions Region
-     */
 
-    /*
-    List Region
-     */
+    // **** End Terms And Conditions Region ***
+
+
+    //*** List Region ***
     viewModel {
         ItemListViewModel(
             itemListUseCase = get(),
@@ -106,13 +107,11 @@ val appModule: Module = module {
 
     //Inject Service
     single(named("ApiPrivate"))  { providerItemListService(get(named(RETROFIT_API_AUTH))) }
-    /*
-    End List Region
-     */
 
-    /*
-    Item Detail Region
-     */
+    // *** End List Region ***
+
+
+    // *** Item Detail Region ***
     viewModel { ItemDetailViewModel( itemDetailUseCase = get(), bindingDelegate = get())}
     factory { providerItemDetailBindingDelegate() }
 
@@ -125,9 +124,8 @@ val appModule: Module = module {
     //Inject Service
     single { providerItemDetailService(get(named(RETROFIT_API_AUTH))) }
 
-    /*
-    End Item detail region
-     */
+
+    // *** End Item detail region ***
 }
 
 fun providerSharedPreferences(androidApplication: Application): SharedPreferences {
@@ -156,6 +154,10 @@ fun providerShowWelcomeScreenUseCase(repository: IAppPreferencesRepository): Sho
 
 fun providerSplashService(retrofit: Retrofit): ISplashService {
     return retrofit.create(ISplashService::class.java)
+}
+
+fun providerHomeBindingDelegate() : HomeBindingDelegate {
+    return HomeBindingDelegate()
 }
 
 fun providerTermsAndConditionsBindingDelegate() : TermsAndConditionsBindingDelegate {

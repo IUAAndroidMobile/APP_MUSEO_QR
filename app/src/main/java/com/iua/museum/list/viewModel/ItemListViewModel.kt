@@ -15,6 +15,7 @@ class ItemListViewModel(
 ): BaseViewModel(itemListBindingDelegate, presenterDelegate) {
 
     fun callGetAllItems() {
+        presenterDelegate.showProgressView()
         viewModelScope.launch {
             when(val response = itemListUseCase.invoke(ItemListRequest())) {
                 is BaseResultWrapper.ApiError -> {
