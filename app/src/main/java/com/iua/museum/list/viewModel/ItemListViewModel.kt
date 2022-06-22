@@ -10,11 +10,12 @@ import kotlinx.coroutines.launch
 
 class ItemListViewModel(
     private val itemListUseCase: ItemListUseCase,
-    override val bindingDelegate: ItemListBindingDelegate,
-    private val presenterDelegate: ItemListPresenterDelegate = ItemListPresenterDelegate(bindingDelegate)
-): BaseViewModel(bindingDelegate, presenterDelegate) {
+    val itemListBindingDelegate: ItemListBindingDelegate,
+    private val presenterDelegate: ItemListPresenterDelegate = ItemListPresenterDelegate(itemListBindingDelegate)
+): BaseViewModel(itemListBindingDelegate, presenterDelegate) {
 
     fun callGetAllItems() {
+        presenterDelegate.showProgressView()
         viewModelScope.launch {
             when(val response = itemListUseCase.invoke(ItemListRequest())) {
                 is BaseResultWrapper.ApiError -> {

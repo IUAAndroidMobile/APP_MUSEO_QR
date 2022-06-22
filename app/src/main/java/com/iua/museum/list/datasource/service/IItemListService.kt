@@ -5,6 +5,7 @@ import retrofit2.http.GET
 
 interface IItemListService {
 
-    @GET("api/items")
+    //@GET("api/items")
+    @GET("/v1/c9df34e0-55b8-44d6-a6df-0fc31f77e7d7")
     suspend fun getItemList(): ItemListResponse
 }

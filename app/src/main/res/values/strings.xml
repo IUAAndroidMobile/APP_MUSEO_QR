@@ -65,4 +65,5 @@
     <string name="correo_electr_nico">Correo electrónico</string>
     <string name="notificaciones">Notificaciones</string>
     <string name="favoritos">Favoritos</string>
+    <string name="custom_loading_text">Cargando...</string>
 </resources>

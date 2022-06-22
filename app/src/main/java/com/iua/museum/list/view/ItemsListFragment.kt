@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.iua.museum.base.BaseFragment
+import com.iua.museum.base.BaseViewModel
 import com.iua.museum.databinding.FragmentItemsListBinding
 import com.iua.museum.item_detail.view.ItemDetailActivity
 import com.iua.museum.list.usecase.ItemListUseCaseModel
@@ -32,20 +33,17 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
 
         recyclerView = binding!!.recyclerFavoritos
         recyclerView.layoutManager = LinearLayoutManager(view?.context)
-        //recyclerView.adapter = MuseumListAdapter(favoritosList, this)
-
-
-
-
 
         return binding!!.root
     }
+
+    override fun getViewModel(): BaseViewModel = itemListViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         itemListViewModel.callGetAllItems()
 
-        itemListViewModel.bindingDelegate.setItemList.observe(viewLifecycleOwner, ::onItemListReceived)
+        itemListViewModel.itemListBindingDelegate.setItemList.observe(viewLifecycleOwner, ::onItemListReceived)
     }
 
     override fun onItemClick(position: Int) {
