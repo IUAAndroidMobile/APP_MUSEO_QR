@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.iua.museum.HomeActivity
+import com.iua.museum.home.view.HomeActivity
 import com.iua.museum.databinding.FragmentHelpBinding
 import com.iua.museum.help.viewModel.HelpViewModel
 

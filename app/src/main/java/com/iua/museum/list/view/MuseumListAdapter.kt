@@ -11,19 +11,29 @@ import com.bumptech.glide.Glide
 import com.iua.museum.R
 import com.iua.museum.list.usecase.MuseumItemList
 
-class MuseumListAdapter (private val data: List<MuseumItemList>, private val listener: RecyclerViewOnClickListener) : RecyclerView.Adapter<RecyclerView.ViewHolder> () {
+class MuseumListAdapter(
+    val dataList: List<MuseumItemList>,
+    private val listener: RecyclerViewOnClickListener
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    lateinit var context : Context
+    lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val row = LayoutInflater.from(parent.context).inflate(R.layout.item_view_museum, parent, false)
+        val row =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_view_museum, parent, false)
         context = parent.context
         return MuseumListViewHolder(row, listener)
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val item = data[position]
-        (holder as MuseumListViewHolder).imgFav.setImageResource(context.resources.getIdentifier(item.mainImageURL, "drawable", context.packageName))
+        val item = dataList[position]
+        (holder as MuseumListViewHolder).imgFav.setImageResource(
+            context.resources.getIdentifier(
+                item.mainImageURL,
+                "drawable",
+                context.packageName
+            )
+        )
         holder.tituloFav.text = item.title
         holder.descipFavo.text = item.introduction
 
@@ -34,13 +44,14 @@ class MuseumListAdapter (private val data: List<MuseumItemList>, private val lis
             .into(holder.imgFav)
     }
 
-    override fun getItemCount(): Int = data.size
+    override fun getItemCount(): Int = dataList.size
 }
 
-class MuseumListViewHolder (itemView: View, listener: RecyclerViewOnClickListener) : RecyclerView.ViewHolder(itemView) {
-    var imgFav : ImageView = itemView.findViewById(R.id.imgItemFavo)
-    var tituloFav : TextView = itemView.findViewById(R.id.tituloItemFavo)
-    var descipFavo : TextView = itemView.findViewById(R.id.descripItemFavo)
+class MuseumListViewHolder(itemView: View, listener: RecyclerViewOnClickListener) :
+    RecyclerView.ViewHolder(itemView) {
+    var imgFav: ImageView = itemView.findViewById(R.id.imgItemFavo)
+    var tituloFav: TextView = itemView.findViewById(R.id.tituloItemFavo)
+    var descipFavo: TextView = itemView.findViewById(R.id.descripItemFavo)
 
     init {
         itemView.setOnClickListener {
@@ -50,5 +61,5 @@ class MuseumListViewHolder (itemView: View, listener: RecyclerViewOnClickListene
 }
 
 interface RecyclerViewOnClickListener {
-    fun onItemClick (position: Int)
+    fun onItemClick(position: Int)
 }

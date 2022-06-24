@@ -9,5 +9,11 @@
         android:id="@+id/itemDetailFragment"
         android:name="com.iua.museum.item_detail.view.ItemDetailFragment"
         android:label="ItemDetailFragment"
-        tools:layout="@layout/fragment_item_detail"/>
+        tools:layout="@layout/fragment_item_detail">
+        <argument
+            android:name="itemDetailViewInputData"
+            android:defaultValue="@null"
+            app:argType="com.iua.museum.item_detail.view.ItemDetailViewInput"
+            app:nullable="true" />
+    </fragment>
 </navigation>

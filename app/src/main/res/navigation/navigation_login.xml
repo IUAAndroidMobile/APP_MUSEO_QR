@@ -40,7 +40,7 @@
     </fragment>
     <activity
         android:id="@+id/splashExitoActivity"
-        android:name="com.iua.museum.splash.view.SplashExitoActivity"
+        android:name="com.iua.museum.ui.SplashExitoActivity"
         android:label="activity_splash_exito"
         tools:layout="@layout/activity_splash_exito" />
     <fragment

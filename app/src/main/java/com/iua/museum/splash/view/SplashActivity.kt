@@ -4,11 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation
-import com.iua.museum.HomeActivity
+import com.iua.museum.home.view.HomeActivity
 import com.iua.museum.R
-import com.iua.museum.preferences.IAppPreferencesRepository
 import com.iua.museum.splash.viewModel.SplashViewModel
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 

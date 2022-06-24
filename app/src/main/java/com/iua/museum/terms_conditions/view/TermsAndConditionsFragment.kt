@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import com.iua.museum.HomeActivity
+import com.iua.museum.home.view.HomeActivity
 import com.iua.museum.R
 import com.iua.museum.databinding.FragmentTermsAndConditionsBinding
 import com.iua.museum.splash.view.SplashActivity

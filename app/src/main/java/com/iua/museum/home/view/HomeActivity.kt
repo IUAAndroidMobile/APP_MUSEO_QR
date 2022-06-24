@@ -1,4 +1,4 @@
-package com.iua.museum
+package com.iua.museum.home.view
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,8 +8,10 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.appcompat.app.AppCompatActivity
 import com.google.zxing.integration.android.IntentIntegrator
+import com.iua.museum.R
 import com.iua.museum.databinding.ActivityHomeBinding
 import com.iua.museum.item_detail.view.ItemDetailActivity
+import com.iua.museum.item_detail.view.ItemDetailViewInput
 
 class HomeActivity : AppCompatActivity() {
 
@@ -33,10 +35,17 @@ class HomeActivity : AppCompatActivity() {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
         if (result != null) {
             if (result.contents == null) {
-                Toast.makeText(this, "Sin resultado", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "Hubo un error, intente de nuevo", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "El valor escaneado es: ${result.contents}", Toast.LENGTH_LONG).show()
-                startActivity(Intent(this, ItemDetailActivity::class.java))
+                result.contents?.let { content ->
+                    val id = content.toInt()
+                    val intent = Intent(this, ItemDetailActivity::class.java)
+                    intent.putExtra(ItemDetailActivity.INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(id))
+                    startActivity(intent)
+                } ?: run {
+                    Toast.makeText(this, "Hubo un error, intente de nuevo", Toast.LENGTH_SHORT).show()
+                }
+
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

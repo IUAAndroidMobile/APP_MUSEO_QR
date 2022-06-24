@@ -12,6 +12,8 @@ import com.iua.museum.base.BaseFragment
 import com.iua.museum.base.BaseViewModel
 import com.iua.museum.databinding.FragmentItemsListBinding
 import com.iua.museum.item_detail.view.ItemDetailActivity
+import com.iua.museum.item_detail.view.ItemDetailActivity.Companion.INPUT_VIEW_DATA_ITEM_DETAIL_KEY
+import com.iua.museum.item_detail.view.ItemDetailViewInput
 import com.iua.museum.list.usecase.ItemListUseCaseModel
 import com.iua.museum.list.viewModel.ItemListViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -47,14 +49,15 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
     }
 
     override fun onItemClick(position: Int) {
-        startActivity(Intent(activity?.applicationContext, ItemDetailActivity::class.java))
-
-        //Toast.makeText(activity?.baseContext, "El titulo seleccionado es: ${favoritosList[position].titulo}", Toast.LENGTH_SHORT).show()
+        val selectedItem = (recyclerView.adapter as MuseumListAdapter).dataList[position]
+        val intent = Intent(activity?.applicationContext, ItemDetailActivity::class.java)
+        intent.putExtra(INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(selectedItem.id))
+        startActivity(intent)
     }
 
     private fun onItemListReceived(itemListUseCaseModel: ItemListUseCaseModel?) {
         Log.d("RECEIVED", itemListUseCaseModel?.data.toString())
-
+        //Populate list of items
         recyclerView.adapter = itemListUseCaseModel?.data?.let { MuseumListAdapter(it, this) }
     }
 

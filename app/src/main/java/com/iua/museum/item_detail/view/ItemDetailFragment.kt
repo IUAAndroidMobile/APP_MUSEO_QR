@@ -1,9 +1,11 @@
 package com.iua.museum.item_detail.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.navArgs
 import com.iua.museum.base.BaseFragment
 import com.iua.museum.base.BaseViewModel
 import com.iua.museum.databinding.FragmentItemDetailBinding
@@ -13,6 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class ItemDetailFragment: BaseFragment() {
 
     private val itemDetailViewModel: ItemDetailViewModel by viewModel()
+    private val viewInputArguments: ItemDetailFragmentArgs by navArgs()
 
     private var binding: FragmentItemDetailBinding? = null
 
@@ -30,5 +33,13 @@ class ItemDetailFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        callGetItemDetailData()
+    }
+
+    private fun callGetItemDetailData() {
+        viewInputArguments.itemDetailViewInputData?.let { itemDetailViewInput ->
+            Log.d("ITEM_DETAIL_VIEW_INPUT_DATA", "ID: ${itemDetailViewInput.publicId} ")
+             itemDetailViewModel.callGetItemById(itemDetailViewInput.publicId)
+        }
     }
 }

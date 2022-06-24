@@ -1,9 +1,9 @@
-package com.iua.museum.splash.view
+package com.iua.museum.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.iua.museum.HomeActivity
+import com.iua.museum.home.view.HomeActivity
 import com.iua.museum.R
 import java.util.*
 import kotlin.concurrent.schedule
