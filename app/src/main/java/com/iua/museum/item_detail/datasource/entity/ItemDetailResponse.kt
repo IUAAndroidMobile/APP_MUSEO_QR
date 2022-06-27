@@ -8,14 +8,13 @@ data class ItemDetailResponse(
     @SerializedName("title") val title: String,
     @SerializedName("introduction") val introduction: String,
     @SerializedName("description") val description: String,
-    @SerializedName("image_gallery") val imageGalleryResponse: List<ImageGalleryItemResponse>,
     @SerializedName("youtube_links") val youToubeLinks: String,
     @SerializedName("tags") val tags: String,
     @SerializedName("external_links") val externalLinks: String,
-    @SerializedName("lat") val lat: Long,
-    @SerializedName("long") val long: Long,
-    @SerializedName("audio_url") val audioURL: String
-
+    @SerializedName("lat") val lat: String,
+    @SerializedName("long") val long: String,
+    @SerializedName("audio_url") val audioURL: String,
+    @SerializedName("image_gallery") val imageGalleryResponse: List<ImageGalleryItemResponse>
 )
 
 data class ImageGalleryItemResponse(

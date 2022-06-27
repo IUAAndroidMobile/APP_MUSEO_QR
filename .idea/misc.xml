@@ -3,14 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/bg_card_login.xml" value="0.518" />
+        <entry key="app/src/main/res/drawable/ic_foto_perfil.xml" value="0.518" />
         <entry key="app/src/main/res/drawable/ic_help-48px.xml" value="0.216" />
         <entry key="app/src/main/res/drawable/ic_help.xml" value="0.518" />
         <entry key="app/src/main/res/drawable/ic_lock.xml" value="0.1215" />
         <entry key="app/src/main/res/drawable/img_circle.xml" value="0.2565" />
-        <entry key="app/src/main/res/drawable/main_btn_state.xml" value="0.2915" />
+        <entry key="app/src/main/res/drawable/main_btn_state.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/rounded_btn.xml" value="0.2915" />
         <entry key="app/src/main/res/drawable/rounded_btn_disabled.xml" value="0.2915" />
         <entry key="app/src/main/res/drawable/rounded_btn_enabled.xml" value="0.2915" />
+        <entry key="app/src/main/res/font/belleza.xml" value="0.59375" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.13796296296296295" />
         <entry key="app/src/main/res/layout/activity_item_detail.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main_login.xml" value="0.3351449275362319" />
@@ -20,16 +23,23 @@
         <entry key="app/src/main/res/layout/content_home.xml" value="0.13796296296296295" />
         <entry key="app/src/main/res/layout/custom_loading.xml" value="0.2510131712259372" />
         <entry key="app/src/main/res/layout/fragment_ayuda.xml" value="0.3632246376811594" />
+        <entry key="app/src/main/res/layout/fragment_cerrar_sesion.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_conf.xml" value="0.33489583333333334" />
         <entry key="app/src/main/res/layout/fragment_favoritos.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_help.xml" value="0.3632246376811594" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_item_detail.xml" value="0.3351449275362319" />
         <entry key="app/src/main/res/layout/fragment_items_list.xml" value="0.5635416666666667" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_opciones_login.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_perfil.xml" value="0.33489583333333334" />
+        <entry key="app/src/main/res/layout/fragment_recuperar_contrasena.xml" value="0.24895833333333334" />
+        <entry key="app/src/main/res/layout/fragment_registro.xml" value="0.24895833333333334" />
         <entry key="app/src/main/res/layout/fragment_scrolling.xml" value="0.3342391304347826" />
         <entry key="app/src/main/res/layout/fragment_splash.xml" value="0.3632246376811594" />
         <entry key="app/src/main/res/layout/fragment_terms_and_conditions.xml" value="0.40307971014492755" />
         <entry key="app/src/main/res/layout/item_view_favorito.xml" value="0.3351449275362319" />
-        <entry key="app/src/main/res/layout/item_view_museum.xml" value="0.14907407407407408" />
+        <entry key="app/src/main/res/layout/item_view_museum.xml" value="0.5" />
       </map>
     </option>
   </component>

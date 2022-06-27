@@ -22,7 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dim_25dp"
-        android:fontFamily="@font/george_semibold"
         android:text="@string/txt_bienvenido_app"
         android:textColor="@color/white"
         android:textSize="@dimen/dim_25sp"

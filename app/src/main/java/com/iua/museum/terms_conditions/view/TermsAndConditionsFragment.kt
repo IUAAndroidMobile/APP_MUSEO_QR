@@ -29,11 +29,12 @@ class TermsAndConditionsFragment: Fragment() {
     ): View {
         _binding = FragmentTermsAndConditionsBinding.inflate(inflater, container, false)
 
-        binding.tYCAcceptCheckBox.setOnCheckedChangeListener { _, isChecked ->
-            termsAndConditionsViewModel.signTermsAndConditions(isChecked)
+        binding.tYCAcceptCheckBox.setOnCheckedChangeListener { _, checked ->
+            binding.btnContinue.isEnabled = checked
         }
 
         binding.btnContinue.setOnClickListener {
+            termsAndConditionsViewModel.signTermsAndConditions(true)
             termsAndConditionsViewModel.isNewUser()
         }
 

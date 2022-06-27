@@ -14,8 +14,8 @@ fun ItemDetailResponse.toUserModel(): ItemDetailUseCaseModel {
         youToubeLinks = youToubeLinks,
         tags = tags,
         externalLinks = externalLinks,
-        lat = lat,
-        long = long,
+        lat = 0L,
+        long = 0L,
         audioURL = audioURL
     )
 }

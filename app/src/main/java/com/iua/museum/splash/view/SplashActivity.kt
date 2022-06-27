@@ -28,7 +28,7 @@ class SplashActivity : AppCompatActivity() {
 
         splashViewModel.callGetAuthToken()
 
-        timer.schedule(2000) {
+        timer.schedule(4000) {
             splashViewModel.shouldShowTermsAndConditions()
         }
     }

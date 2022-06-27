@@ -8,6 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.Priority
+import com.bumptech.glide.request.RequestOptions
 import com.iua.museum.R
 import com.iua.museum.list.usecase.MuseumItemList
 
@@ -37,10 +39,15 @@ class MuseumListAdapter(
         holder.tituloFav.text = item.title
         holder.descipFavo.text = item.introduction
 
-        Glide
-            .with(holder.itemView)
-            .load(item.mainImageURL)
+        val options = RequestOptions()
             .centerCrop()
+            .placeholder(R.drawable.image_placeholder)
+            .error(R.drawable.image_placeholder)
+            .priority(Priority.HIGH)
+
+        Glide.with(context)
+            .setDefaultRequestOptions(options)
+            .load(if (item.mainImageURL.contains("https://")) { item.mainImageURL } else { null })
             .into(holder.imgFav)
     }
 

@@ -3,7 +3,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="iniciar_sesion">Iniciar sesión</string>
 
-    <string name="home_title">LAM</string>
+    <string name="home_title">Lecciones Aprendidas de Malvinas</string>
     <string name="home_description">Bienvenidos a los espacios patrimoniales de la Guarnicion Aerea Córdoba (GAC) \n\n Para comenzar escanee un QR</string>
     <string name="home_about">App desarrollada por UNDEX - 2022</string>
     <string name="home_help_icon">\?</string>
@@ -46,7 +46,6 @@
     <string name="btn_escanear_qr">Escanear QR</string>
     <string name="btn_ver_contenido">Ver contenido</string>
     <string name="txt_favoritos">Favoritos</string>
-    <string name="titulo_item_fav">La Giaconda</string>
     <string name="txt_descrip_item_fav">El Retrato de Lisa Gherardini, esposa de Francesco del Giocondo, ​ más conocido como La Gioconda o La Mona Lisa, es una obra pictórica del polímata renacentista italiano Leonardo da Vinci.</string>
     <string name="qu_te_diviertas">¡Qué te diviertas!</string>
     <string name="version">Versión 1.0.0</string>

@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface IItemListService {
 
     //@GET("api/items")
-    @GET("/v1/c9df34e0-55b8-44d6-a6df-0fc31f77e7d7")
+    @GET("/v1/7ecb4f96-38c8-4158-bcd4-1faf849b2d86")
     suspend fun getItemList(): ItemListResponse
 }

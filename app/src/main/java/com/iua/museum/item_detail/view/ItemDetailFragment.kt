@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.iua.museum.base.BaseFragment
 import com.iua.museum.base.BaseViewModel
+import com.iua.museum.base.viewModel.observe
 import com.iua.museum.databinding.FragmentItemDetailBinding
+import com.iua.museum.item_detail.usecase.ItemDetailUseCaseModel
 import com.iua.museum.item_detail.viewModel.ItemDetailViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -33,7 +35,20 @@ class ItemDetailFragment: BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        //observe(itemDetailViewModel.bindingDelegate.setItemDetail, this::onItemDetailReceived)
+        itemDetailViewModel.bindingDelegate.setItemDetail.observe(viewLifecycleOwner, ::onItemDetailReceived)
+
         callGetItemDetailData()
+    }
+
+    private fun onItemDetailReceived(item: ItemDetailUseCaseModel) {
+        binding?.let { view ->
+            view.itemCollapsingTitle.title = item.title
+            view.itemToolbar.title = item.title
+            view.itemDescriptionTextView.text = item.description
+
+        }
     }
 
     private fun callGetItemDetailData() {
