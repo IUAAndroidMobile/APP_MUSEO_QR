@@ -65,4 +65,5 @@
     <string name="notificaciones">Notificaciones</string>
     <string name="favoritos">Favoritos</string>
     <string name="custom_loading_text">Cargando...</string>
+    <string name="item_detail_watch_video">Reproducir video en Youtube</string>
 </resources>

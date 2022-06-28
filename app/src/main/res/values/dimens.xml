@@ -5,6 +5,7 @@
     <dimen name="dim_splash">300dp</dimen>
     <dimen name="dim_20dp">20dp</dimen>
     <dimen name="dim_8sp">8sp</dimen>
+    <dimen name="dim_16sp">16sp</dimen>
     <dimen name="dim_18sp">18sp</dimen>
     <dimen name="dim_5dp">5dp</dimen>
     <dimen name="dim_15dp">15dp</dimen>

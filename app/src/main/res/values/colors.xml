@@ -17,4 +17,8 @@
     <color name="red">#FF0000</color>
     <color name="grey">@android:color/darker_gray</color>
     <color name="transparent">#0000FFFF</color>
+    <color name="grey1">#EEE</color>
+    <color name="grey2">#DDD</color>
+    <color name="grey3">#FFF</color>
+
 </resources>
