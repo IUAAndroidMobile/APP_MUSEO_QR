@@ -15,5 +15,22 @@
             android:defaultValue="@null"
             app:argType="com.iua.museum.item_detail.view.ItemDetailViewInput"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_itemDetailFragment_to_imageGalleryFragment"
+            app:destination="@id/imageGalleryFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim">
+        </action>
+    </fragment>
+    <fragment
+        android:id="@+id/imageGalleryFragment"
+        android:name="com.iua.museum.item_detail.view.image_gallery.ImageGalleryFragment"
+        android:label="ImageGalleryFragment"
+        tools:layout="@layout/fragment_image_gallery">
+        <argument
+            android:name="itemDetailImageGalleryViewInput"
+            android:defaultValue="@null"
+            app:argType="com.iua.museum.item_detail.view.image_gallery.ImageGalleryViewInput"
+            app:nullable="true" />
     </fragment>
 </navigation>

@@ -1,5 +1,8 @@
 package com.iua.museum.item_detail.usecase
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class ItemDetailUseCaseModel(
     val id: Int,
     val roomName: String,
@@ -15,9 +18,10 @@ data class ItemDetailUseCaseModel(
     val audioURL: String
 )
 
+@Parcelize
 data class ImageGalleryItem(
     val imageId: Int,
     val imageURL: String,
     val imageDescription: String,
     val isMain: Boolean
-)
+): Parcelable
