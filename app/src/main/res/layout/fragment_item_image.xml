@@ -9,8 +9,9 @@
         android:id="@+id/image_item_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dim_10dp"
         android:src="@drawable/image_placeholder"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/image_description"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +34,7 @@
         android:layout_width="@dimen/dim_35dp"
         android:layout_height="wrap_content"
         android:background="@drawable/ic_back_arrow"
-        android:layout_marginStart="@dimen/dim_1dp"
+        android:layout_marginStart="@dimen/dim_5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
