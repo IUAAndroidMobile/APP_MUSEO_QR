@@ -1,4 +1,4 @@
-package com.iua.museum.base
+package com.iua.museum.base.viewModel
 
 abstract class BasePresenterDelegate(private val bindingDelegate: BaseBindingDelegate) {
 

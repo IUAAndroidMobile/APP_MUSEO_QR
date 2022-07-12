@@ -2,7 +2,7 @@ package com.iua.museum.list.viewModel
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.iua.museum.base.BaseViewModel
+import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.support.BaseResultWrapper
 import com.iua.museum.list.datasource.entity.ItemListRequest
 import com.iua.museum.list.usecase.ItemListUseCase

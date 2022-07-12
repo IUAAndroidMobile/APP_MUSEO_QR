@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import com.google.zxing.integration.android.IntentIntegrator
 import com.iua.museum.base.BaseFragment
-import com.iua.museum.base.BaseViewModel
+import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.databinding.FragmentHomeBinding
 import com.iua.museum.home.viewModel.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

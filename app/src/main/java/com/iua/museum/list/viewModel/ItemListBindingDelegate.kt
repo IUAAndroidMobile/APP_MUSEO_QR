@@ -2,7 +2,7 @@ package com.iua.museum.list.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.iua.museum.base.BaseBindingDelegate
+import com.iua.museum.base.viewModel.BaseBindingDelegate
 import com.iua.museum.list.usecase.ItemListUseCaseModel
 
 class ItemListBindingDelegate: BaseBindingDelegate() {

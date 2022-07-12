@@ -2,7 +2,7 @@ package com.iua.museum.splash.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.iua.museum.base.BaseBindingDelegate
+import com.iua.museum.base.viewModel.BaseBindingDelegate
 
 class SplashBindingDelegate: BaseBindingDelegate() {
 

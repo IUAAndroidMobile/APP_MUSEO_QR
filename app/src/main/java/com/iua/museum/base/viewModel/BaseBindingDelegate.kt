@@ -1,4 +1,4 @@
-package com.iua.museum.base
+package com.iua.museum.base.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

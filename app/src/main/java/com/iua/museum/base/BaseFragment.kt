@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.iua.museum.R
+import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.viewModel.observe
 
 abstract class BaseFragment : Fragment(), BaseViewActionsInterface {

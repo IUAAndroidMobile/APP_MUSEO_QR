@@ -2,9 +2,8 @@ package com.iua.museum.splash.viewModel
 
 import android.util.Log
 import androidx.lifecycle.viewModelScope
-import com.iua.museum.base.BaseViewModel
+import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.support.BaseResultWrapper
-import com.iua.museum.preferences.IAppPreferencesRepository
 import com.iua.museum.splash.datasource.entity.SplashEntityRequest
 import com.iua.museum.splash.usecase.ShowTermsAndConditionsScreenUseCase
 import com.iua.museum.splash.usecase.ShowWelcomeScreenUseCase

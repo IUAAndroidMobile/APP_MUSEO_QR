@@ -1,6 +1,6 @@
 package com.iua.museum.splash.viewModel
 
-import com.iua.museum.base.BasePresenterDelegate
+import com.iua.museum.base.viewModel.BasePresenterDelegate
 
 class SplashPresenterDelegate(private val splashBindingDelegate: SplashBindingDelegate): BasePresenterDelegate(splashBindingDelegate) {
 

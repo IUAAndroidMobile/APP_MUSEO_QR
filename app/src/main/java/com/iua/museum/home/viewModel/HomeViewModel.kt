@@ -1,6 +1,6 @@
 package com.iua.museum.home.viewModel
 
-import com.iua.museum.base.BaseViewModel
+import com.iua.museum.base.viewModel.BaseViewModel
 
 class HomeViewModel(
     val homeBindingDelegate: HomeBindingDelegate,

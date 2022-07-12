@@ -15,10 +15,9 @@ import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.iua.museum.R
 import com.iua.museum.base.BaseFragment
-import com.iua.museum.base.BaseViewModel
+import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.toVisible
 import com.iua.museum.databinding.FragmentItemDetailBinding
-import com.iua.museum.item_detail.usecase.ImageGalleryItem
 import com.iua.museum.item_detail.usecase.ItemDetailUseCaseModel
 import com.iua.museum.item_detail.view.image_gallery.ImageGalleryViewInput
 import com.iua.museum.item_detail.viewModel.ItemDetailViewModel
