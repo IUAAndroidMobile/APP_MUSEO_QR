@@ -132,7 +132,7 @@ class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
     private fun callGetItemDetailData() {
         viewInputArguments.itemDetailViewInputData?.let { itemDetailViewInput ->
             Log.d("ITEM_DETAIL_VIEW_INPUT_DATA", "ID: ${itemDetailViewInput.publicId} ")
-            itemDetailViewModel.callGetItemById(itemDetailViewInput.publicId)
+            itemDetailViewModel.callGetItemById(itemDetailViewInput.publicId.toString())
         }
     }
 

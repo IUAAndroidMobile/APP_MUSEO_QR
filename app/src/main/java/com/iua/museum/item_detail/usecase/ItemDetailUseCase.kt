@@ -7,6 +7,6 @@ import com.iua.museum.item_detail.datasource.repository.IItemDetailRepository
 class ItemDetailUseCase(private val repository: IItemDetailRepository): BaseUseCase<ItemDetailRequest, ItemDetailUseCaseModel>() {
 
     override suspend fun run(params: ItemDetailRequest): ItemDetailUseCaseModel {
-        return repository.getItemDetailById(params.public_id)
+        return repository.getItemDetailById(params.token, params.public_id)
     }
 }

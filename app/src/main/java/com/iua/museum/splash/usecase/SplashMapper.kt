@@ -1,7 +1,7 @@
 package com.iua.museum.splash.usecase
 
-import com.iua.museum.splash.datasource.entity.SplashEntityResponse
+import com.iua.museum.splash.datasource.entity.AppLoginEntityResponse
 
-fun SplashEntityResponse.toUserModel() : SplashUseCaseModel {
-    return SplashUseCaseModel()
+fun AppLoginEntityResponse.toUserModel() : AppLoginUseCaseModel {
+    return AppLoginUseCaseModel(this.token)
 }

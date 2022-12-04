@@ -17,14 +17,19 @@ class ItemListViewModel(
     fun callGetAllItems() {
         presenterDelegate.showProgressView()
         viewModelScope.launch {
-            when(val response = itemListUseCase.invoke(ItemListRequest())) {
-                is BaseResultWrapper.ApiError -> {
-                    // We had an error
-                    Log.d("ERROR", response.error.toString())
+            appPreferencesRepository.getTokenU()?.let { token ->
+                when(val response = itemListUseCase.invoke(ItemListRequest("Bearer $token"))) {
+                    is BaseResultWrapper.ApiError -> {
+                        // We had an error
+                        // May be we should renew the user token -> Should navigate to splash.
+                        Log.d("ERROR", response.error.toString())
+                    }
+                    is BaseResultWrapper.ApiSuccess -> {
+                        presenterDelegate.showSuccessList(response.value)
+                    }
                 }
-                is BaseResultWrapper.ApiSuccess -> {
-                    presenterDelegate.showSuccessList(response.value)
-                }
+            } ?: run {
+                //Should navigate to splash.
             }
         }
     }

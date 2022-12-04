@@ -19,12 +19,12 @@ import com.iua.museum.list.viewModel.ItemListBindingDelegate
 import com.iua.museum.list.viewModel.ItemListViewModel
 import com.iua.museum.preferences.AppPreferencesRepository
 import com.iua.museum.preferences.IAppPreferencesRepository
-import com.iua.museum.splash.datasource.repository.ISplashRepository
-import com.iua.museum.splash.datasource.repository.SplashRepository
-import com.iua.museum.splash.datasource.service.ISplashService
+import com.iua.museum.splash.datasource.repository.IAppLoginRepository
+import com.iua.museum.splash.datasource.repository.AppLoginRepository
+import com.iua.museum.splash.datasource.service.ILoginService
 import com.iua.museum.splash.usecase.ShowTermsAndConditionsScreenUseCase
 import com.iua.museum.splash.usecase.ShowWelcomeScreenUseCase
-import com.iua.museum.splash.usecase.SplashUseCase
+import com.iua.museum.splash.usecase.AppLoginUseCase
 import com.iua.museum.splash.viewModel.SplashBindingDelegate
 import com.iua.museum.splash.viewModel.SplashViewModel
 import com.iua.museum.terms_conditions.usecase.SignTermsAndConditionsUseCase
@@ -46,7 +46,7 @@ val appModule: Module = module {
 
     //*** Splash region ***
     viewModel{ SplashViewModel(
-        splashUseCase = get(),
+        appLoginUseCase = get(),
         showTermsAndConditionsScreenUseCase = get(),
         showWelcomeScreenUseCase = get(),
         splashBindingDelegate = get()) }
@@ -58,7 +58,7 @@ val appModule: Module = module {
     single { providerShowWelcomeScreenUseCase(get()) }
 
     //Inject Repository
-    single<ISplashRepository> { SplashRepository(service = get()) }
+    single<IAppLoginRepository> { AppLoginRepository(service = get()) }
 
     // Inject Service
     single { providerSplashService(get(named(RETROFIT_API_AUTH))) }
@@ -140,8 +140,8 @@ fun providerSplashBindingDelegate(): SplashBindingDelegate {
     return SplashBindingDelegate()
 }
 
-fun providerSplashUseCase(repository: ISplashRepository) : SplashUseCase {
-    return SplashUseCase(repository)
+fun providerSplashUseCase(repository: IAppLoginRepository) : AppLoginUseCase {
+    return AppLoginUseCase(repository)
 }
 
 fun providerShowTermsAndConditionsUseCase(repository: IAppPreferencesRepository): ShowTermsAndConditionsScreenUseCase {
@@ -152,8 +152,8 @@ fun providerShowWelcomeScreenUseCase(repository: IAppPreferencesRepository): Sho
     return ShowWelcomeScreenUseCase(repository)
 }
 
-fun providerSplashService(retrofit: Retrofit): ISplashService {
-    return retrofit.create(ISplashService::class.java)
+fun providerSplashService(retrofit: Retrofit): ILoginService {
+    return retrofit.create(ILoginService::class.java)
 }
 
 fun providerHomeBindingDelegate() : HomeBindingDelegate {

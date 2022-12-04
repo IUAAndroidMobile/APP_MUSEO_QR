@@ -2,10 +2,10 @@ package com.iua.museum.splash.usecase
 
 import com.iua.museum.base.BaseUseCase
 import com.iua.museum.preferences.IAppPreferencesRepository
-import com.iua.museum.splash.datasource.entity.SplashEntityRequest
+import com.iua.museum.splash.datasource.entity.AppLoginEntityRequest
 
-class ShowWelcomeScreenUseCase(private val repository: IAppPreferencesRepository): BaseUseCase<SplashEntityRequest, Boolean>() {
+class ShowWelcomeScreenUseCase(private val repository: IAppPreferencesRepository): BaseUseCase<AppLoginEntityRequest, Boolean>() {
 
-    override suspend fun run(params: SplashEntityRequest): Boolean = repository.getIsNewUser()
+    override suspend fun run(params: AppLoginEntityRequest): Boolean = repository.getIsNewUser()
 
 }

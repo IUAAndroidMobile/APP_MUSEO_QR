@@ -9,7 +9,7 @@ open class BaseViewModel(
     private val presentationDelegate: BasePresenterDelegate
 ) : ViewModel() {
 
-    private val appPreferencesRepository: IAppPreferencesRepository by lazy { GlobalContext.get().get<IAppPreferencesRepository>() }
+    protected val appPreferencesRepository: IAppPreferencesRepository by lazy { GlobalContext.get().get<IAppPreferencesRepository>() }
 
     fun callLogout() {
         //TODO: Expire authorization here if necessary.

@@ -7,6 +7,7 @@ import androidx.navigation.Navigation
 import com.iua.museum.home.view.HomeActivity
 import com.iua.museum.R
 import com.iua.museum.splash.viewModel.SplashViewModel
+import com.iua.museum.util.isTokenValid
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
@@ -23,12 +24,19 @@ class SplashActivity : AppCompatActivity() {
         setContentView(R.layout.activity_splash)
 
         //Init observers
+        splashViewModel.splashBindingDelegate.setUserToken.observe(this, ::onUserToken)
         splashViewModel.splashBindingDelegate.setIsNewUser.observe(this, ::onIsNewUserEvent)
         splashViewModel.splashBindingDelegate.setTermsAndCondition.observe(this, ::showTermsAndConditions)
 
         splashViewModel.callGetAuthToken()
 
         timer.schedule(4000) {
+            //splashViewModel.shouldShowTermsAndConditions()
+        }
+    }
+
+    private fun onUserToken(token: String) {
+        if (token.isTokenValid()) {
             splashViewModel.shouldShowTermsAndConditions()
         }
     }

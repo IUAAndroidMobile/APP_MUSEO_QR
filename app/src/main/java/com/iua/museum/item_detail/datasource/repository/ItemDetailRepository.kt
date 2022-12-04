@@ -6,6 +6,6 @@ import com.iua.museum.item_detail.usecase.toUserModel
 
 class ItemDetailRepository(private val service: IItemDetailService): IItemDetailRepository {
 
-    override suspend fun getItemDetailById(publicId: Int): ItemDetailUseCaseModel =
-        service.getItemById().toUserModel()
+    override suspend fun getItemDetailById(token: String, publicId: String): ItemDetailUseCaseModel =
+        service.getItemById(token, publicId).toUserModel()
 }

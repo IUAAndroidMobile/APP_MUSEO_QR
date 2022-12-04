@@ -23,9 +23,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField("String", "BASE_URL", "\"https://localhost/\"")
-            buildConfigField("String", "BASE_APP_USER_NAME", "\"nico\"")
-            buildConfigField("String", "BASE_APP_USER_PASSWORD", "\"12345\"")
+            buildConfigField("String", "BASE_URL", "\"https://museomalvinas.iua.edu.ar/\"")
+            buildConfigField("String", "BASE_APP_USER_NAME", "\"malvinas\"")
+            buildConfigField("String", "BASE_APP_USER_PASSWORD", "\"argentinassiempre!\"")
             debuggable false
         }
 
@@ -33,9 +33,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
-            buildConfigField("String", "BASE_URL", "\"https://mocki.io/\"")
-            buildConfigField("String", "BASE_APP_USER_NAME", "\"nico\"")
-            buildConfigField("String", "BASE_APP_USER_PASSWORD", "\"12345\"")
+            buildConfigField("String", "BASE_URL", "\"https://museomalvinas.iua.edu.ar/\"")
+            buildConfigField("String", "BASE_APP_USER_NAME", "\"malvinas\"")
+            buildConfigField("String", "BASE_APP_USER_PASSWORD", "\"argentinassiempre!\"")
             debuggable true
         }
     }

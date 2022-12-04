@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.support.BaseResultWrapper
-import com.iua.museum.splash.datasource.entity.SplashEntityRequest
+import com.iua.museum.splash.datasource.entity.AppLoginEntityRequest
 import com.iua.museum.splash.usecase.ShowWelcomeScreenUseCase
 import com.iua.museum.terms_conditions.datasource.entity.TermsAndConditionsRequest
 import com.iua.museum.terms_conditions.usecase.SignTermsAndConditionsUseCase
@@ -32,7 +32,7 @@ class TermsAndConditionsViewModel(
 
     fun isNewUser() {
         viewModelScope.launch {
-            when(val response = showWelcomeScreenUseCase.invoke(SplashEntityRequest())) {
+            when(val response = showWelcomeScreenUseCase.invoke(AppLoginEntityRequest())) {
                 is BaseResultWrapper.ApiError -> {
                     Log.d("ERROR", response.error.toString())
                 }

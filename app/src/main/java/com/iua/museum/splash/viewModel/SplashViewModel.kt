@@ -4,14 +4,14 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.support.BaseResultWrapper
-import com.iua.museum.splash.datasource.entity.SplashEntityRequest
+import com.iua.museum.splash.datasource.entity.AppLoginEntityRequest
 import com.iua.museum.splash.usecase.ShowTermsAndConditionsScreenUseCase
 import com.iua.museum.splash.usecase.ShowWelcomeScreenUseCase
-import com.iua.museum.splash.usecase.SplashUseCase
+import com.iua.museum.splash.usecase.AppLoginUseCase
 import kotlinx.coroutines.launch
 
 class SplashViewModel(
-    private val splashUseCase: SplashUseCase,
+    private val appLoginUseCase: AppLoginUseCase,
     private val showTermsAndConditionsScreenUseCase: ShowTermsAndConditionsScreenUseCase,
     private val showWelcomeScreenUseCase: ShowWelcomeScreenUseCase,
     val splashBindingDelegate: SplashBindingDelegate,
@@ -20,12 +20,13 @@ class SplashViewModel(
 
     fun callGetAuthToken() {
         viewModelScope.launch {
-            when(val response = splashUseCase.invoke(SplashEntityRequest())) {
+            when(val response = appLoginUseCase.invoke(AppLoginEntityRequest())) {
                 is BaseResultWrapper.ApiError -> {
                     Log.d("ERROR", response.error.toString())
                 }
                 is BaseResultWrapper.ApiSuccess -> {
-                    //presenterDelegate
+                    appPreferencesRepository.setTokenU(response.value.token)
+                    presenterDelegate.setUserToken(response.value.token)
                 }
             }
         }
@@ -33,7 +34,7 @@ class SplashViewModel(
 
     fun shouldShowTermsAndConditions() {
         viewModelScope.launch {
-            when(val response = showTermsAndConditionsScreenUseCase.invoke(SplashEntityRequest())) {
+            when(val response = showTermsAndConditionsScreenUseCase.invoke(AppLoginEntityRequest())) {
                 is BaseResultWrapper.ApiError -> {
                     Log.d("ERROR", response.error.toString())
                 }
@@ -46,7 +47,7 @@ class SplashViewModel(
 
     fun isNewUser() {
         viewModelScope.launch {
-            when(val response = showWelcomeScreenUseCase.invoke(SplashEntityRequest())) {
+            when(val response = showWelcomeScreenUseCase.invoke(AppLoginEntityRequest())) {
                 is BaseResultWrapper.ApiError -> {
                     Log.d("ERROR", response.error.toString())
                 }

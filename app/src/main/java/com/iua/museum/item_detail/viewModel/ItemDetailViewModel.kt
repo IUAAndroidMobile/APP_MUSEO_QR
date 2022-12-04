@@ -13,17 +13,20 @@ class ItemDetailViewModel(
     private val presenterDelegate: ItemDetailPresenterDelegate = ItemDetailPresenterDelegate(bindingDelegate)
 ): BaseViewModel(bindingDelegate, presenterDelegate) {
 
-
-    fun callGetItemById(publicID: Int) {
+    fun callGetItemById(publicID: String) {
         presenterDelegate.showProgressView()
         viewModelScope.launch {
-            when(val response = itemDetailUseCase.invoke(ItemDetailRequest(publicID))) {
-                is BaseResultWrapper.ApiError -> {
-                    presenterDelegate.hideProgressView()
+            appPreferencesRepository.getTokenU()?.let { token ->
+                when (val response = itemDetailUseCase.invoke(ItemDetailRequest("Bearer $token", publicID))) {
+                    is BaseResultWrapper.ApiError -> {
+                        presenterDelegate.hideProgressView()
+                    }
+                    is BaseResultWrapper.ApiSuccess -> {
+                        presenterDelegate.showItemDetail(response.value)
+                    }
                 }
-                is BaseResultWrapper.ApiSuccess -> {
-                    presenterDelegate.showItemDetail(response.value)
-                }
+            } ?: run {
+                //Should navigate to splash.
             }
         }
     }

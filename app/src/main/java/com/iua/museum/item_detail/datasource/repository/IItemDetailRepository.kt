@@ -4,5 +4,5 @@ import com.iua.museum.item_detail.usecase.ItemDetailUseCaseModel
 
 interface IItemDetailRepository {
 
-    suspend fun getItemDetailById(publicId: Int): ItemDetailUseCaseModel
+    suspend fun getItemDetailById(token: String, publicId: String): ItemDetailUseCaseModel
 }

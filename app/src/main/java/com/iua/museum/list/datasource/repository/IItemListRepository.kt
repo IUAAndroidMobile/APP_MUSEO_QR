@@ -5,5 +5,5 @@ import com.iua.museum.list.usecase.ItemListUseCaseModel
 interface IItemListRepository {
 
     @Throws(Exception::class)
-    suspend fun callGetAllItems(): ItemListUseCaseModel
+    suspend fun callGetAllItems(token: String): ItemListUseCaseModel
 }
