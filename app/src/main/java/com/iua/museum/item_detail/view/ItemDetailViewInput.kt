@@ -5,5 +5,5 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class ItemDetailViewInput(
-    val publicId: Int
+    val publicId: String
 ): Parcelable

@@ -5,9 +5,10 @@ data class ItemListUseCaseModel(
 )
 
 data class MuseumItemList(
-    val id: Int,
-    val roomName: String,
+    val publicID: String,
     val title: String,
+    val categoryName: String,
+    val roomName: String,
     val introduction: String,
     val mainImageURL: String
 )

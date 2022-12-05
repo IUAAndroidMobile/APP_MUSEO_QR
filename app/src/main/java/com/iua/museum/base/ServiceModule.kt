@@ -25,7 +25,6 @@ val apiAuthModule = module {
     single { AuthInterceptor() }
     single { providerHttpLoggingInterceptor() }
     single(named(HTTP_CLIENT_AUTH)) { providerHttpClientAuth(get(), get()) }
-    //single(named(HTTP_CLIENT_AUTH)) { provideOkHttpClient(get()) }
     single(named(RETROFIT_API_AUTH)) {
         providerRetrofit(
             url = BuildConfig.BASE_URL,

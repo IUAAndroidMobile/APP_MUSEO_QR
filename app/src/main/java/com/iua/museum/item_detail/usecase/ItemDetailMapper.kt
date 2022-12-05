@@ -5,18 +5,20 @@ import com.iua.museum.item_detail.datasource.entity.ItemDetailResponse
 
 fun ItemDetailResponse.toUserModel(): ItemDetailUseCaseModel {
     return ItemDetailUseCaseModel(
-        id = publicId,
-        roomName = roomName,
-        title = title,
-        introduction = introduction,
-        description = description,
-        imageGallery = imageGalleryResponse.toUserModel(),
-        youToubeLinks = youToubeLinks,
-        tags = tags,
-        externalLinks = externalLinks,
+        public_id = item.publicId,
+        roomName = item.roomName,
+        title = item.title,
+        categoryCode = item.categoryCode,
+        categoryName = item.categoryName,
+        introduction = item.introduction,
+        description = item.description,
+        imageGallery = item.imageGalleryResponse.toUserModel(),
+        youToubeLinks = item.youToubeLinks,
+        tags = item.tags,
+        externalLinks = item.externalLinks,
         lat = 0L,
         long = 0L,
-        audioURL = audioURL
+        audioURL = item.audioURL
     )
 }
 

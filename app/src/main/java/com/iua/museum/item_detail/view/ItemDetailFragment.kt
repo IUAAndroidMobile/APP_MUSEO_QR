@@ -79,16 +79,16 @@ class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
             if (item.youToubeLinks.isNotEmpty()) {
                 val videoView = view.youtubeLinksTextView
                 videoView.setOnClickListener {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.youToubeLinks)))
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.youToubeLinks.first())))
                 }
             }
 
             if (item.externalLinks.isNotEmpty()) {
-                view.externalLinks.text = item.externalLinks
+                view.externalLinks.text = item.externalLinks.first()
                 view.externalLinks.toVisible()
                 view.externalLinks.paintFlags = Paint.UNDERLINE_TEXT_FLAG
                 view.externalLinks.setOnClickListener {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.externalLinks)))
+                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.externalLinks.first())))
                 }
             }
 
@@ -132,7 +132,7 @@ class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
     private fun callGetItemDetailData() {
         viewInputArguments.itemDetailViewInputData?.let { itemDetailViewInput ->
             Log.d("ITEM_DETAIL_VIEW_INPUT_DATA", "ID: ${itemDetailViewInput.publicId} ")
-            itemDetailViewModel.callGetItemById(itemDetailViewInput.publicId.toString())
+            itemDetailViewModel.callGetItemById(itemDetailViewInput.publicId)
         }
     }
 

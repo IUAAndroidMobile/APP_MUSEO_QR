@@ -7,8 +7,10 @@ import com.iua.museum.splash.usecase.toUserModel
 
 class AppLoginRepository(private val service: ILoginService) : IAppLoginRepository {
 
+    val appUserLoginEntityRequest = AppLoginEntityRequest()
+
     override suspend fun callGetAuthToken(): AppLoginUseCaseModel = service.getAuthToken(
-        AppLoginEntityRequest()
+        appUserLoginEntityRequest.username, appUserLoginEntityRequest.password
     ).toUserModel()
 
 }

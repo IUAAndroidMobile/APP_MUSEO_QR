@@ -1,12 +1,11 @@
 package com.iua.museum.splash.datasource.service
 
-import com.iua.museum.splash.datasource.entity.AppLoginEntityRequest
 import com.iua.museum.splash.datasource.entity.AppLoginEntityResponse
-import retrofit2.http.Body
-import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Query
 
 interface ILoginService {
 
-    @GET("/api/v1/login")
-    suspend fun getAuthToken(@Body request: AppLoginEntityRequest): AppLoginEntityResponse
+    @POST("/api/v1/login/json")
+    suspend fun getAuthToken(@Query("username") username: String, @Query("password") password: String): AppLoginEntityResponse
 }

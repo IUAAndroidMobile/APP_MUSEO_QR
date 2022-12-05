@@ -51,7 +51,7 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
     override fun onItemClick(position: Int) {
         val selectedItem = (recyclerView.adapter as MuseumListAdapter).dataList[position]
         val intent = Intent(activity?.applicationContext, ItemDetailActivity::class.java)
-        intent.putExtra(INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(selectedItem.id))
+        intent.putExtra(INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(selectedItem.publicID))
         startActivity(intent)
     }
 

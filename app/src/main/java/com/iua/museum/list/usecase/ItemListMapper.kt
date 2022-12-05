@@ -7,9 +7,10 @@ fun ItemListResponse.toUserModel() : ItemListUseCaseModel {
     data.forEach {
         dataList.add(
             MuseumItemList(
-                id = it.publicId,
-                roomName = it.roomName,
+                publicID = it.publicId,
                 title = it.title,
+                categoryName = it.category,
+                roomName = it.roomName,
                 introduction = it.introduction,
                 mainImageURL = it.mainImageURL
             )

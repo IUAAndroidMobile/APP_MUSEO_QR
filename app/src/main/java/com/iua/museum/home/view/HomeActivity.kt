@@ -12,6 +12,7 @@ import com.iua.museum.R
 import com.iua.museum.databinding.ActivityHomeBinding
 import com.iua.museum.item_detail.view.ItemDetailActivity
 import com.iua.museum.item_detail.view.ItemDetailViewInput
+import com.iua.museum.util.clearQR
 
 class HomeActivity : AppCompatActivity() {
 
@@ -38,14 +39,12 @@ class HomeActivity : AppCompatActivity() {
                 Toast.makeText(this, "Hubo un error, intente de nuevo", Toast.LENGTH_SHORT).show()
             } else {
                 result.contents?.let { content ->
-                    val id = content.toInt()
                     val intent = Intent(this, ItemDetailActivity::class.java)
-                    intent.putExtra(ItemDetailActivity.INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(id))
+                    intent.putExtra(ItemDetailActivity.INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(content.clearQR()))
                     startActivity(intent)
                 } ?: run {
                     Toast.makeText(this, "Hubo un error, intente de nuevo", Toast.LENGTH_SHORT).show()
                 }
-
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)
