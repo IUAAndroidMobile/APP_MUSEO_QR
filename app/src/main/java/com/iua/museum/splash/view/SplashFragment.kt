@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import com.iua.museum.base.BaseFragment
 import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.databinding.FragmentSplashBinding
@@ -26,6 +27,14 @@ class SplashFragment: BaseFragment() {
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    fun hideSplashloading() {
+        binding.loaderIcon.isVisible = false
+    }
+
+    fun showSplashLoading() {
+        binding.loaderIcon.isVisible = true
     }
 
 }

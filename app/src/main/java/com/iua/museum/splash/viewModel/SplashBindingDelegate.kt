@@ -12,7 +12,6 @@ class SplashBindingDelegate: BaseBindingDelegate() {
     fun setUserTokenPostValue(userToken: String) {
         _userTokenLiveData.postValue(userToken)
     }
-
     //End region save user token
 
     //Region show Terms and Condition

@@ -5,6 +5,7 @@
     <color name="third_color">#74C9DF</color>
     <color name="fourth_color">#37BBED</color>
     <color name="fifith_color">#3B4449</color>
+    <color name="grey_letter">#333</color>
 
     <color name="backgr">@color/fourth_color</color>
     <color name="purple_200">#FFBB86FC</color>

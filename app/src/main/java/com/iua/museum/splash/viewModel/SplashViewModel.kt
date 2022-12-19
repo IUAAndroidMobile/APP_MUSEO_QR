@@ -23,6 +23,7 @@ class SplashViewModel(
             when(val response = appLoginUseCase.invoke(AppLoginEntityRequest())) {
                 is BaseResultWrapper.ApiError -> {
                     Log.d("ERROR", response.error.toString())
+                    presenterDelegate.setUserToken(response.error.errorStatus.name)
                 }
                 is BaseResultWrapper.ApiSuccess -> {
                     appPreferencesRepository.setTokenU(response.value.token)
