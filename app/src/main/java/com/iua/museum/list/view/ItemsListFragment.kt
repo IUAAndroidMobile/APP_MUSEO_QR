@@ -2,7 +2,6 @@ package com.iua.museum.list.view
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,7 +55,6 @@ class ItemsListFragment() : BaseFragment(), RecyclerViewOnClickListener {
     }
 
     private fun onItemListReceived(itemListUseCaseModel: ItemListUseCaseModel?) {
-        Log.d("RECEIVED", itemListUseCaseModel?.data.toString())
         //Populate list of items
         recyclerView.adapter = itemListUseCaseModel?.data?.let { MuseumListAdapter(it, this) }
     }

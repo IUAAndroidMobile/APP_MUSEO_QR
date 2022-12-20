@@ -13,7 +13,7 @@ fun ItemDetailResponse.toUserModel(): ItemDetailUseCaseModel {
         introduction = item.introduction,
         description = item.description,
         imageGallery = item.imageGalleryResponse.toUserModel(),
-        youToubeLinks = item.youToubeLinks,
+        youTubeLinks = item.youTubeLinks,
         tags = item.tags,
         externalLinks = item.externalLinks,
         lat = 0L,

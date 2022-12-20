@@ -16,7 +16,7 @@ data class ItemDetailResponseContent(
     @SerializedName("introduction") val introduction: String,
     @SerializedName("description") val description: String,
     @SerializedName("image_gallery") val imageGalleryResponse: List<ImageGalleryItemResponse>,
-    @SerializedName("youtube_links") val youToubeLinks: List<String>,
+    @SerializedName("youtube_links") val youTubeLinks: List<String>,
     @SerializedName("tags") val tags: List<String>,
     @SerializedName("external_links") val externalLinks: List<String>,
     @SerializedName("lat") val lat: String,

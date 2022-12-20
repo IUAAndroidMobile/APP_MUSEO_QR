@@ -12,7 +12,7 @@ data class ItemDetailUseCaseModel(
     val introduction: String,
     val description: String,
     val imageGallery: List<ImageGalleryItem>,
-    val youToubeLinks: List<String>,
+    val youTubeLinks: List<String>,
     val tags: List<String>,
     val externalLinks: List<String>,
     val lat: Long,

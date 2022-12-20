@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.iua.museum.R
 import com.iua.museum.base.BaseFragment
@@ -19,12 +20,14 @@ import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.toVisible
 import com.iua.museum.databinding.FragmentItemDetailBinding
 import com.iua.museum.item_detail.usecase.ItemDetailUseCaseModel
+import com.iua.museum.item_detail.view.adapters.YouTubeLinksAdapter
+import com.iua.museum.item_detail.view.adapters.YouTubeRecyclerViewOnClickListener
 import com.iua.museum.item_detail.view.image_gallery.ImageGalleryViewInput
 import com.iua.museum.item_detail.viewModel.ItemDetailViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
-class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
+class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener, YouTubeRecyclerViewOnClickListener {
 
     private val itemDetailViewModel: ItemDetailViewModel by viewModel()
     private val viewInputArguments: ItemDetailFragmentArgs by navArgs()
@@ -32,6 +35,8 @@ class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
     private var binding: FragmentItemDetailBinding? = null
 
     private var tts: TextToSpeech? = null
+
+    private var youTubeLinks: List<String>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -76,11 +81,16 @@ class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
             view.itemIntroductionTextView.text = item.introduction
             view.itemDescriptionTextView.text = item.description
 
-            if (item.youToubeLinks.isNotEmpty()) {
-                val videoView = view.youtubeLinksTextView
+            if (item.youTubeLinks.isNotEmpty()) {
+                val recyclerView = binding!!.youTubeLinksRecycler
+                recyclerView.layoutManager = LinearLayoutManager(context)
+                youTubeLinks = item.youTubeLinks
+                recyclerView.adapter = YouTubeLinksAdapter(item.youTubeLinks, this)
+
+                /**val videoView = view.youtubeLinksTextView
                 videoView.setOnClickListener {
-                    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.youToubeLinks.first())))
-                }
+                startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(item.youTubeLinks.first())))
+                }**/
             }
 
             if (item.externalLinks.isNotEmpty()) {
@@ -143,5 +153,11 @@ class ItemDetailFragment : BaseFragment(), TextToSpeech.OnInitListener {
 
     override fun onInit(p0: Int) {
         tts?.language = Locale.getDefault()
+    }
+
+    override fun onYoutubeLinkClick(position: Int) {
+        youTubeLinks?.let {
+            startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(it[position])))
+        }
     }
 }
