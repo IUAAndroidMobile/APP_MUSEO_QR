@@ -34,17 +34,16 @@ class HomeActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         val result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-        if (result != null) {
-            if (result.contents == null) {
+        if (result != null && resultCode == RESULT_OK && requestCode == IntentIntegrator.REQUEST_CODE) {
+            result.contents?.let { content ->
+                val intent = Intent(this, ItemDetailActivity::class.java)
+                intent.putExtra(
+                    ItemDetailActivity.INPUT_VIEW_DATA_ITEM_DETAIL_KEY,
+                    ItemDetailViewInput(content.clearQR())
+                )
+                startActivity(intent)
+            } ?: run {
                 Toast.makeText(this, "Hubo un error, intente de nuevo", Toast.LENGTH_SHORT).show()
-            } else {
-                result.contents?.let { content ->
-                    val intent = Intent(this, ItemDetailActivity::class.java)
-                    intent.putExtra(ItemDetailActivity.INPUT_VIEW_DATA_ITEM_DETAIL_KEY, ItemDetailViewInput(content.clearQR()))
-                    startActivity(intent)
-                } ?: run {
-                    Toast.makeText(this, "Hubo un error, intente de nuevo", Toast.LENGTH_SHORT).show()
-                }
             }
         } else {
             super.onActivityResult(requestCode, resultCode, data)

@@ -10,6 +10,7 @@ import com.iua.museum.base.BaseFragment
 import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.databinding.FragmentHomeBinding
 import com.iua.museum.home.viewModel.HomeViewModel
+import com.iua.museum.qr.QRScanActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class HomeFragment : BaseFragment() {
@@ -36,7 +37,13 @@ class HomeFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnScan.setOnClickListener {
-            IntentIntegrator(activity).initiateScan()
+            IntentIntegrator(activity)
+                .setBeepEnabled(false)
+                .setBarcodeImageEnabled(false)
+                .setOrientationLocked(true)
+                .setCaptureActivity(QRScanActivity::class.java)
+                .setPrompt("Enfoque un código QR a su camara")
+                .initiateScan()
         }
 
         binding.btnSeeContent.setOnClickListener {
