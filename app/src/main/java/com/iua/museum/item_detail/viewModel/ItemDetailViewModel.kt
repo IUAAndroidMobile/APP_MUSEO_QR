@@ -20,6 +20,7 @@ class ItemDetailViewModel(
                 when (val response = itemDetailUseCase.invoke(ItemDetailRequest("Bearer $token", publicID))) {
                     is BaseResultWrapper.ApiError -> {
                         presenterDelegate.hideProgressView()
+                        presenterDelegate.showServerError()
                     }
                     is BaseResultWrapper.ApiSuccess -> {
                         presenterDelegate.showItemDetail(response.value)

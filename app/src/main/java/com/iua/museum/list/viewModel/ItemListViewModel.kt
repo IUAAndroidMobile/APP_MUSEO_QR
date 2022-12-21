@@ -20,9 +20,7 @@ class ItemListViewModel(
             appPreferencesRepository.getTokenU()?.let { token ->
                 when(val response = itemListUseCase.invoke(ItemListRequest("Bearer $token"))) {
                     is BaseResultWrapper.ApiError -> {
-                        // We had an error
-                        // May be we should renew the user token -> Should navigate to splash.
-                        Log.d("ERROR", response.error.toString())
+                        presenterDelegate.showServerError()
                     }
                     is BaseResultWrapper.ApiSuccess -> {
                         presenterDelegate.showSuccessList(response.value)

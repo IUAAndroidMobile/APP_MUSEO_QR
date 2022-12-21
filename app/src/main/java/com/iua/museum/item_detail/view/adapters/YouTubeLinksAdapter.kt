@@ -3,7 +3,6 @@ package com.iua.museum.item_detail.view.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.iua.museum.R
 
@@ -21,7 +20,6 @@ class YouTubeLinksAdapter(
     }
 
     override fun getItemCount(): Int = dataList.size
-
 }
 
 class YouTubeListRecyclerView(itemView: View, listener: YouTubeRecyclerViewOnClickListener) :

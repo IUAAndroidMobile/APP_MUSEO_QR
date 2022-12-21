@@ -10,4 +10,8 @@ abstract class BasePresenterDelegate(private val bindingDelegate: BaseBindingDel
         bindingDelegate.hideProgressViewPostValue()
     }
 
+    fun showServerError() {
+        bindingDelegate.showServerErrorPostValue()
+    }
+
 }

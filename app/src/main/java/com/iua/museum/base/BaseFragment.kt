@@ -1,5 +1,6 @@
 package com.iua.museum.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
@@ -7,6 +8,7 @@ import androidx.fragment.app.Fragment
 import com.iua.museum.R
 import com.iua.museum.base.viewModel.BaseViewModel
 import com.iua.museum.base.viewModel.observe
+import com.iua.museum.splash.view.SplashActivity
 
 abstract class BaseFragment : Fragment(), BaseViewActionsInterface {
 
@@ -40,6 +42,13 @@ abstract class BaseFragment : Fragment(), BaseViewActionsInterface {
         progressView = View.inflate(context, R.layout.custom_loading, viewGroupRoot)
             .findViewById(R.id.v_progress)
         progressView.toGone()
+    }
+
+    override fun navigateToSplashScreenAndRenewToken(u: Unit) {
+        val intent = Intent(context, SplashActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        startActivity(intent)
     }
 
 }

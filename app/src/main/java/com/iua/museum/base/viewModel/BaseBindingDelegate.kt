@@ -19,6 +19,12 @@ abstract class BaseBindingDelegate {
         _hideProgressView.postValue(Unit)
     }
     //End hide progress view
+    //Show server Error
+    private val _showServerError = MutableLiveData<Unit>()
+    val showServerErrorLiveData: LiveData<Unit> get() = _showServerError
+    fun showServerErrorPostValue() {
+        _showServerError.postValue(Unit)
+    }
+    //End Region show server error
     //End Region Generic operations
-
 }
